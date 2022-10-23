@@ -1,5 +1,1 @@
-enum Screen {
-  HomeScren,
-  LockScreen,
-  Both
-}
+enum Screen { HomeScren, LockScreen, Both }

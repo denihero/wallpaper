@@ -1,11 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'dart:convert';
 
 part 'image.freezed.dart';
 part 'image.g.dart';
 
 @freezed
-class Wallpaper with _$Image {
+class Wallpaper with _$Wallpaper {
   const factory Wallpaper({
     int? page,
     int? perPage,
@@ -15,7 +14,8 @@ class Wallpaper with _$Image {
     String? prevPage,
   }) = _Image;
 
-  factory Wallpaper.fromJson(Map<String, dynamic> json) => _$ImageFromJson(json);
+  factory Wallpaper.fromJson(Map<String, dynamic> json) =>
+      _$WallpaperFromJson(json);
 }
 
 @freezed

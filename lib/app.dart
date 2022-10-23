@@ -13,12 +13,13 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<GetImageCubit>(create: (context) => sl<GetImageCubit>()..getImages()),
+        BlocProvider<GetImageCubit>(
+            create: (context) => sl<GetImageCubit>()..getImages()),
       ],
       child: MaterialApp(
         routes: {
           '/': (context) => const HomePage(),
-          '/detail':(context) => const DetailPage()
+          '/detail': (context) => const DetailPage()
         },
       ),
     );

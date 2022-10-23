@@ -436,7 +436,7 @@ abstract class _$$_ImageSuccessStateCopyWith<$Res> {
   @useResult
   $Res call({Wallpaper image});
 
-  $ImageCopyWith<$Res> get image;
+  $WallpaperCopyWith<$Res> get image;
 }
 
 /// @nodoc
@@ -462,8 +462,8 @@ class __$$_ImageSuccessStateCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
-  $ImageCopyWith<$Res> get image {
-    return $ImageCopyWith<$Res>(_value.image, (value) {
+  $WallpaperCopyWith<$Res> get image {
+    return $WallpaperCopyWith<$Res>(_value.image, (value) {
       return _then(_value.copyWith(image: value));
     });
   }

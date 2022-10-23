@@ -16,8 +16,7 @@ class InternetImage extends StatelessWidget {
       height: height,
       fit: BoxFit.cover,
       filterQuality: FilterQuality.high,
-      placeholder: (context, url) =>
-          const SpinKitDoubleBounce(
+      placeholder: (context, url) => const SpinKitDoubleBounce(
         color: Colors.blue,
       ),
       errorWidget: (context, url, error) => const Icon(Icons.error),

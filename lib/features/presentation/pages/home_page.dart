@@ -12,21 +12,21 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = context.read<GetImageCubit>().state;
     return Scaffold(
-        backgroundColor: Colors.white70,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          title: const Text(
-            'Wallpaper',
-            style: TextStyle(color: Colors.black),
-          ),
-          centerTitle: true,
+      backgroundColor: Colors.white70,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: const Text(
+          'Wallpaper',
+          style: TextStyle(color: Colors.black),
         ),
-        body: Center(
-            child: Padding(
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4),
           child: state.when(
-              initial: () => const SpinKitDoubleBounce(),
+              initial: () => const SizedBox(),
               loading: () => const SpinKitDoubleBounce(),
               error: () => const Text('Something get wrong'),
               success: (image) {
@@ -44,6 +44,8 @@ class HomePage extends StatelessWidget {
                       );
                     });
               }),
-        )));
+        ),
+      ),
+    );
   }
 }

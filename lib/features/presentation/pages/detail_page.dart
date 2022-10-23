@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:wallpaper/wallpaper.dart';
 import 'package:wallpaper_app/core/models/screen.dart';
@@ -15,10 +14,7 @@ class DetailPage extends StatefulWidget {
   State<DetailPage> createState() => _DetailPageState();
 }
 
-
 class _DetailPageState extends State<DetailPage> with DetailPageController {
-
-
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -27,7 +23,7 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
       body: Stack(
         children: [
           InternetImage(
-            image:widget.image!,
+            image: widget.image!,
             height: height,
             width: width,
           ),
@@ -56,36 +52,41 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
                       color: Colors.white,
                     ),
                     onPressed: () async {
-                      showModalBottomSheet(context: context, builder: (context){
-                        return SizedBox(
-                          height: 170,
-                          child: Column(
-                            children: [
-                              ListTile(
-                                title: const Text('Home screen'),
-                                onTap: () async{
-                                  Navigator.pop(context);
-                                  await applyWallpaper(context, Screen.HomeScren,widget.image);
-                                },
+                      showModalBottomSheet(
+                          context: context,
+                          builder: (context) {
+                            return SizedBox(
+                              height: 170,
+                              child: Column(
+                                children: [
+                                  ListTile(
+                                    title: const Text('Home screen'),
+                                    onTap: () async {
+                                      Navigator.pop(context);
+                                      await applyWallpaper(context,
+                                          Screen.HomeScren, widget.image);
+                                    },
+                                  ),
+                                  ListTile(
+                                    title: const Text('Lock screen'),
+                                    onTap: () async {
+                                      Navigator.pop(context);
+                                      await applyWallpaper(context,
+                                          Screen.LockScreen, widget.image);
+                                    },
+                                  ),
+                                  ListTile(
+                                    title: const Text('Both'),
+                                    onTap: () async {
+                                      Navigator.pop(context);
+                                      await applyWallpaper(
+                                          context, Screen.Both, widget.image);
+                                    },
+                                  )
+                                ],
                               ),
-                              ListTile(
-                                title: const Text('Lock screen'),
-                                onTap: () async{
-                                  Navigator.pop(context);
-                                  await applyWallpaper(context, Screen.LockScreen,widget.image);
-                                },
-                              ),
-                              ListTile(
-                                title: const Text('Both'),
-                                onTap: () async{
-                                  Navigator.pop(context);
-                                  await applyWallpaper(context, Screen.Both,widget.image);
-                                },
-                              )
-                            ],
-                          ),
-                        );
-                      });
+                            );
+                          });
                       //await downloadImage(context);
                     },
                     backgroundColor: const Color.fromRGBO(64, 100, 245, 1),
@@ -109,7 +110,4 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
       ),
     );
   }
-
-
-
 }

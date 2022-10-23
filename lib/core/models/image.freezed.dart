@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Wallpaper _$ImageFromJson(Map<String, dynamic> json) {
+Wallpaper _$WallpaperFromJson(Map<String, dynamic> json) {
   return _Image.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Image {
+mixin _$Wallpaper {
   int? get page => throw _privateConstructorUsedError;
   int? get perPage => throw _privateConstructorUsedError;
   List<Photo>? get photos => throw _privateConstructorUsedError;
@@ -29,13 +29,14 @@ mixin _$Image {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ImageCopyWith<Wallpaper> get copyWith => throw _privateConstructorUsedError;
+  $WallpaperCopyWith<Wallpaper> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ImageCopyWith<$Res> {
-  factory $ImageCopyWith(Wallpaper value, $Res Function(Wallpaper) then) =
-      _$ImageCopyWithImpl<$Res, Wallpaper>;
+abstract class $WallpaperCopyWith<$Res> {
+  factory $WallpaperCopyWith(Wallpaper value, $Res Function(Wallpaper) then) =
+      _$WallpaperCopyWithImpl<$Res, Wallpaper>;
   @useResult
   $Res call(
       {int? page,
@@ -47,9 +48,9 @@ abstract class $ImageCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ImageCopyWithImpl<$Res, $Val extends Wallpaper>
-    implements $ImageCopyWith<$Res> {
-  _$ImageCopyWithImpl(this._value, this._then);
+class _$WallpaperCopyWithImpl<$Res, $Val extends Wallpaper>
+    implements $WallpaperCopyWith<$Res> {
+  _$WallpaperCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -96,7 +97,7 @@ class _$ImageCopyWithImpl<$Res, $Val extends Wallpaper>
 }
 
 /// @nodoc
-abstract class _$$_ImageCopyWith<$Res> implements $ImageCopyWith<$Res> {
+abstract class _$$_ImageCopyWith<$Res> implements $WallpaperCopyWith<$Res> {
   factory _$$_ImageCopyWith(_$_Image value, $Res Function(_$_Image) then) =
       __$$_ImageCopyWithImpl<$Res>;
   @override
@@ -111,7 +112,8 @@ abstract class _$$_ImageCopyWith<$Res> implements $ImageCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ImageCopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$_Image>
+class __$$_ImageCopyWithImpl<$Res>
+    extends _$WallpaperCopyWithImpl<$Res, _$_Image>
     implements _$$_ImageCopyWith<$Res> {
   __$$_ImageCopyWithImpl(_$_Image _value, $Res Function(_$_Image) _then)
       : super(_value, _then);
@@ -192,7 +194,7 @@ class _$_Image implements _Image {
 
   @override
   String toString() {
-    return 'Image(page: $page, perPage: $perPage, photos: $photos, totalResults: $totalResults, nextPage: $nextPage, prevPage: $prevPage)';
+    return 'Wallpaper(page: $page, perPage: $perPage, photos: $photos, totalResults: $totalResults, nextPage: $nextPage, prevPage: $prevPage)';
   }
 
   @override
