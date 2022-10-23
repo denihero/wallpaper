@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallpaper_app/core/models/image.dart';
 import 'package:wallpaper_app/features/presentation/widget/bounce_loading.dart';
 import 'package:wallpaper_app/features/presentation/widget/wallpaper_card.dart';
 

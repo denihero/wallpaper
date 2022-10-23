@@ -62,6 +62,7 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
                                   ListTile(
                                     title: const Text('Home screen'),
                                     onTap: () async {
+                                      setState(() {});
                                       Navigator.pop(context);
                                       await applyWallpaper(context,
                                           Screen.HomeScren, widget.image);
@@ -105,6 +106,16 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
                 color: Colors.white,
               ),
             ),
+          ),
+          ValueListenableBuilder(
+            valueListenable: isDownloading,
+            builder: (BuildContext context, bool value, __) {
+              return Positioned.fill(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: value ? imageDownloadDialog() : const SizedBox(),
+                  ));
+            },
           )
         ],
       ),
