@@ -43,26 +43,26 @@ mixin _$ImageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ImageInitialState value) initial,
-    required TResult Function(_ImageLoadingState value) loading,
-    required TResult Function(_ImageErrorState value) error,
-    required TResult Function(_ImageSuccessState value) success,
+    required TResult Function(ImageInitialState value) initial,
+    required TResult Function(ImageLoadingState value) loading,
+    required TResult Function(ImageErrorState value) error,
+    required TResult Function(ImageSuccessState value) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ImageInitialState value)? initial,
-    TResult? Function(_ImageLoadingState value)? loading,
-    TResult? Function(_ImageErrorState value)? error,
-    TResult? Function(_ImageSuccessState value)? success,
+    TResult? Function(ImageInitialState value)? initial,
+    TResult? Function(ImageLoadingState value)? loading,
+    TResult? Function(ImageErrorState value)? error,
+    TResult? Function(ImageSuccessState value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ImageInitialState value)? initial,
-    TResult Function(_ImageLoadingState value)? loading,
-    TResult Function(_ImageErrorState value)? error,
-    TResult Function(_ImageSuccessState value)? success,
+    TResult Function(ImageInitialState value)? initial,
+    TResult Function(ImageLoadingState value)? loading,
+    TResult Function(ImageErrorState value)? error,
+    TResult Function(ImageSuccessState value)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -87,25 +87,25 @@ class _$ImageStateCopyWithImpl<$Res, $Val extends ImageState>
 }
 
 /// @nodoc
-abstract class _$$_ImageInitialStateCopyWith<$Res> {
-  factory _$$_ImageInitialStateCopyWith(_$_ImageInitialState value,
-          $Res Function(_$_ImageInitialState) then) =
-      __$$_ImageInitialStateCopyWithImpl<$Res>;
+abstract class _$$ImageInitialStateCopyWith<$Res> {
+  factory _$$ImageInitialStateCopyWith(
+          _$ImageInitialState value, $Res Function(_$ImageInitialState) then) =
+      __$$ImageInitialStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ImageInitialStateCopyWithImpl<$Res>
-    extends _$ImageStateCopyWithImpl<$Res, _$_ImageInitialState>
-    implements _$$_ImageInitialStateCopyWith<$Res> {
-  __$$_ImageInitialStateCopyWithImpl(
-      _$_ImageInitialState _value, $Res Function(_$_ImageInitialState) _then)
+class __$$ImageInitialStateCopyWithImpl<$Res>
+    extends _$ImageStateCopyWithImpl<$Res, _$ImageInitialState>
+    implements _$$ImageInitialStateCopyWith<$Res> {
+  __$$ImageInitialStateCopyWithImpl(
+      _$ImageInitialState _value, $Res Function(_$ImageInitialState) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ImageInitialState implements _ImageInitialState {
-  const _$_ImageInitialState();
+class _$ImageInitialState implements ImageInitialState {
+  _$ImageInitialState();
 
   @override
   String toString() {
@@ -115,7 +115,7 @@ class _$_ImageInitialState implements _ImageInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ImageInitialState);
+        (other.runtimeType == runtimeType && other is _$ImageInitialState);
   }
 
   @override
@@ -161,10 +161,10 @@ class _$_ImageInitialState implements _ImageInitialState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ImageInitialState value) initial,
-    required TResult Function(_ImageLoadingState value) loading,
-    required TResult Function(_ImageErrorState value) error,
-    required TResult Function(_ImageSuccessState value) success,
+    required TResult Function(ImageInitialState value) initial,
+    required TResult Function(ImageLoadingState value) loading,
+    required TResult Function(ImageErrorState value) error,
+    required TResult Function(ImageSuccessState value) success,
   }) {
     return initial(this);
   }
@@ -172,10 +172,10 @@ class _$_ImageInitialState implements _ImageInitialState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ImageInitialState value)? initial,
-    TResult? Function(_ImageLoadingState value)? loading,
-    TResult? Function(_ImageErrorState value)? error,
-    TResult? Function(_ImageSuccessState value)? success,
+    TResult? Function(ImageInitialState value)? initial,
+    TResult? Function(ImageLoadingState value)? loading,
+    TResult? Function(ImageErrorState value)? error,
+    TResult? Function(ImageSuccessState value)? success,
   }) {
     return initial?.call(this);
   }
@@ -183,10 +183,10 @@ class _$_ImageInitialState implements _ImageInitialState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ImageInitialState value)? initial,
-    TResult Function(_ImageLoadingState value)? loading,
-    TResult Function(_ImageErrorState value)? error,
-    TResult Function(_ImageSuccessState value)? success,
+    TResult Function(ImageInitialState value)? initial,
+    TResult Function(ImageLoadingState value)? loading,
+    TResult Function(ImageErrorState value)? error,
+    TResult Function(ImageSuccessState value)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -196,30 +196,30 @@ class _$_ImageInitialState implements _ImageInitialState {
   }
 }
 
-abstract class _ImageInitialState implements ImageState {
-  const factory _ImageInitialState() = _$_ImageInitialState;
+abstract class ImageInitialState implements ImageState {
+  factory ImageInitialState() = _$ImageInitialState;
 }
 
 /// @nodoc
-abstract class _$$_ImageLoadingStateCopyWith<$Res> {
-  factory _$$_ImageLoadingStateCopyWith(_$_ImageLoadingState value,
-          $Res Function(_$_ImageLoadingState) then) =
-      __$$_ImageLoadingStateCopyWithImpl<$Res>;
+abstract class _$$ImageLoadingStateCopyWith<$Res> {
+  factory _$$ImageLoadingStateCopyWith(
+          _$ImageLoadingState value, $Res Function(_$ImageLoadingState) then) =
+      __$$ImageLoadingStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ImageLoadingStateCopyWithImpl<$Res>
-    extends _$ImageStateCopyWithImpl<$Res, _$_ImageLoadingState>
-    implements _$$_ImageLoadingStateCopyWith<$Res> {
-  __$$_ImageLoadingStateCopyWithImpl(
-      _$_ImageLoadingState _value, $Res Function(_$_ImageLoadingState) _then)
+class __$$ImageLoadingStateCopyWithImpl<$Res>
+    extends _$ImageStateCopyWithImpl<$Res, _$ImageLoadingState>
+    implements _$$ImageLoadingStateCopyWith<$Res> {
+  __$$ImageLoadingStateCopyWithImpl(
+      _$ImageLoadingState _value, $Res Function(_$ImageLoadingState) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ImageLoadingState implements _ImageLoadingState {
-  const _$_ImageLoadingState();
+class _$ImageLoadingState implements ImageLoadingState {
+  _$ImageLoadingState();
 
   @override
   String toString() {
@@ -229,7 +229,7 @@ class _$_ImageLoadingState implements _ImageLoadingState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ImageLoadingState);
+        (other.runtimeType == runtimeType && other is _$ImageLoadingState);
   }
 
   @override
@@ -275,10 +275,10 @@ class _$_ImageLoadingState implements _ImageLoadingState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ImageInitialState value) initial,
-    required TResult Function(_ImageLoadingState value) loading,
-    required TResult Function(_ImageErrorState value) error,
-    required TResult Function(_ImageSuccessState value) success,
+    required TResult Function(ImageInitialState value) initial,
+    required TResult Function(ImageLoadingState value) loading,
+    required TResult Function(ImageErrorState value) error,
+    required TResult Function(ImageSuccessState value) success,
   }) {
     return loading(this);
   }
@@ -286,10 +286,10 @@ class _$_ImageLoadingState implements _ImageLoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ImageInitialState value)? initial,
-    TResult? Function(_ImageLoadingState value)? loading,
-    TResult? Function(_ImageErrorState value)? error,
-    TResult? Function(_ImageSuccessState value)? success,
+    TResult? Function(ImageInitialState value)? initial,
+    TResult? Function(ImageLoadingState value)? loading,
+    TResult? Function(ImageErrorState value)? error,
+    TResult? Function(ImageSuccessState value)? success,
   }) {
     return loading?.call(this);
   }
@@ -297,10 +297,10 @@ class _$_ImageLoadingState implements _ImageLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ImageInitialState value)? initial,
-    TResult Function(_ImageLoadingState value)? loading,
-    TResult Function(_ImageErrorState value)? error,
-    TResult Function(_ImageSuccessState value)? success,
+    TResult Function(ImageInitialState value)? initial,
+    TResult Function(ImageLoadingState value)? loading,
+    TResult Function(ImageErrorState value)? error,
+    TResult Function(ImageSuccessState value)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -310,30 +310,30 @@ class _$_ImageLoadingState implements _ImageLoadingState {
   }
 }
 
-abstract class _ImageLoadingState implements ImageState {
-  const factory _ImageLoadingState() = _$_ImageLoadingState;
+abstract class ImageLoadingState implements ImageState {
+  factory ImageLoadingState() = _$ImageLoadingState;
 }
 
 /// @nodoc
-abstract class _$$_ImageErrorStateCopyWith<$Res> {
-  factory _$$_ImageErrorStateCopyWith(
-          _$_ImageErrorState value, $Res Function(_$_ImageErrorState) then) =
-      __$$_ImageErrorStateCopyWithImpl<$Res>;
+abstract class _$$ImageErrorStateCopyWith<$Res> {
+  factory _$$ImageErrorStateCopyWith(
+          _$ImageErrorState value, $Res Function(_$ImageErrorState) then) =
+      __$$ImageErrorStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ImageErrorStateCopyWithImpl<$Res>
-    extends _$ImageStateCopyWithImpl<$Res, _$_ImageErrorState>
-    implements _$$_ImageErrorStateCopyWith<$Res> {
-  __$$_ImageErrorStateCopyWithImpl(
-      _$_ImageErrorState _value, $Res Function(_$_ImageErrorState) _then)
+class __$$ImageErrorStateCopyWithImpl<$Res>
+    extends _$ImageStateCopyWithImpl<$Res, _$ImageErrorState>
+    implements _$$ImageErrorStateCopyWith<$Res> {
+  __$$ImageErrorStateCopyWithImpl(
+      _$ImageErrorState _value, $Res Function(_$ImageErrorState) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ImageErrorState implements _ImageErrorState {
-  const _$_ImageErrorState();
+class _$ImageErrorState implements ImageErrorState {
+  _$ImageErrorState();
 
   @override
   String toString() {
@@ -343,7 +343,7 @@ class _$_ImageErrorState implements _ImageErrorState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ImageErrorState);
+        (other.runtimeType == runtimeType && other is _$ImageErrorState);
   }
 
   @override
@@ -389,10 +389,10 @@ class _$_ImageErrorState implements _ImageErrorState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ImageInitialState value) initial,
-    required TResult Function(_ImageLoadingState value) loading,
-    required TResult Function(_ImageErrorState value) error,
-    required TResult Function(_ImageSuccessState value) success,
+    required TResult Function(ImageInitialState value) initial,
+    required TResult Function(ImageLoadingState value) loading,
+    required TResult Function(ImageErrorState value) error,
+    required TResult Function(ImageSuccessState value) success,
   }) {
     return error(this);
   }
@@ -400,10 +400,10 @@ class _$_ImageErrorState implements _ImageErrorState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ImageInitialState value)? initial,
-    TResult? Function(_ImageLoadingState value)? loading,
-    TResult? Function(_ImageErrorState value)? error,
-    TResult? Function(_ImageSuccessState value)? success,
+    TResult? Function(ImageInitialState value)? initial,
+    TResult? Function(ImageLoadingState value)? loading,
+    TResult? Function(ImageErrorState value)? error,
+    TResult? Function(ImageSuccessState value)? success,
   }) {
     return error?.call(this);
   }
@@ -411,10 +411,10 @@ class _$_ImageErrorState implements _ImageErrorState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ImageInitialState value)? initial,
-    TResult Function(_ImageLoadingState value)? loading,
-    TResult Function(_ImageErrorState value)? error,
-    TResult Function(_ImageSuccessState value)? success,
+    TResult Function(ImageInitialState value)? initial,
+    TResult Function(ImageLoadingState value)? loading,
+    TResult Function(ImageErrorState value)? error,
+    TResult Function(ImageSuccessState value)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -424,15 +424,15 @@ class _$_ImageErrorState implements _ImageErrorState {
   }
 }
 
-abstract class _ImageErrorState implements ImageState {
-  const factory _ImageErrorState() = _$_ImageErrorState;
+abstract class ImageErrorState implements ImageState {
+  factory ImageErrorState() = _$ImageErrorState;
 }
 
 /// @nodoc
-abstract class _$$_ImageSuccessStateCopyWith<$Res> {
-  factory _$$_ImageSuccessStateCopyWith(_$_ImageSuccessState value,
-          $Res Function(_$_ImageSuccessState) then) =
-      __$$_ImageSuccessStateCopyWithImpl<$Res>;
+abstract class _$$ImageSuccessStateCopyWith<$Res> {
+  factory _$$ImageSuccessStateCopyWith(
+          _$ImageSuccessState value, $Res Function(_$ImageSuccessState) then) =
+      __$$ImageSuccessStateCopyWithImpl<$Res>;
   @useResult
   $Res call({Wallpaper image});
 
@@ -440,11 +440,11 @@ abstract class _$$_ImageSuccessStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ImageSuccessStateCopyWithImpl<$Res>
-    extends _$ImageStateCopyWithImpl<$Res, _$_ImageSuccessState>
-    implements _$$_ImageSuccessStateCopyWith<$Res> {
-  __$$_ImageSuccessStateCopyWithImpl(
-      _$_ImageSuccessState _value, $Res Function(_$_ImageSuccessState) _then)
+class __$$ImageSuccessStateCopyWithImpl<$Res>
+    extends _$ImageStateCopyWithImpl<$Res, _$ImageSuccessState>
+    implements _$$ImageSuccessStateCopyWith<$Res> {
+  __$$ImageSuccessStateCopyWithImpl(
+      _$ImageSuccessState _value, $Res Function(_$ImageSuccessState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -452,7 +452,7 @@ class __$$_ImageSuccessStateCopyWithImpl<$Res>
   $Res call({
     Object? image = null,
   }) {
-    return _then(_$_ImageSuccessState(
+    return _then(_$ImageSuccessState(
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -471,8 +471,8 @@ class __$$_ImageSuccessStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ImageSuccessState implements _ImageSuccessState {
-  const _$_ImageSuccessState({required this.image});
+class _$ImageSuccessState implements ImageSuccessState {
+  _$ImageSuccessState({required this.image});
 
   @override
   final Wallpaper image;
@@ -486,7 +486,7 @@ class _$_ImageSuccessState implements _ImageSuccessState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ImageSuccessState &&
+            other is _$ImageSuccessState &&
             (identical(other.image, image) || other.image == image));
   }
 
@@ -496,9 +496,8 @@ class _$_ImageSuccessState implements _ImageSuccessState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ImageSuccessStateCopyWith<_$_ImageSuccessState> get copyWith =>
-      __$$_ImageSuccessStateCopyWithImpl<_$_ImageSuccessState>(
-          this, _$identity);
+  _$$ImageSuccessStateCopyWith<_$ImageSuccessState> get copyWith =>
+      __$$ImageSuccessStateCopyWithImpl<_$ImageSuccessState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -540,10 +539,10 @@ class _$_ImageSuccessState implements _ImageSuccessState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ImageInitialState value) initial,
-    required TResult Function(_ImageLoadingState value) loading,
-    required TResult Function(_ImageErrorState value) error,
-    required TResult Function(_ImageSuccessState value) success,
+    required TResult Function(ImageInitialState value) initial,
+    required TResult Function(ImageLoadingState value) loading,
+    required TResult Function(ImageErrorState value) error,
+    required TResult Function(ImageSuccessState value) success,
   }) {
     return success(this);
   }
@@ -551,10 +550,10 @@ class _$_ImageSuccessState implements _ImageSuccessState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ImageInitialState value)? initial,
-    TResult? Function(_ImageLoadingState value)? loading,
-    TResult? Function(_ImageErrorState value)? error,
-    TResult? Function(_ImageSuccessState value)? success,
+    TResult? Function(ImageInitialState value)? initial,
+    TResult? Function(ImageLoadingState value)? loading,
+    TResult? Function(ImageErrorState value)? error,
+    TResult? Function(ImageSuccessState value)? success,
   }) {
     return success?.call(this);
   }
@@ -562,10 +561,10 @@ class _$_ImageSuccessState implements _ImageSuccessState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ImageInitialState value)? initial,
-    TResult Function(_ImageLoadingState value)? loading,
-    TResult Function(_ImageErrorState value)? error,
-    TResult Function(_ImageSuccessState value)? success,
+    TResult Function(ImageInitialState value)? initial,
+    TResult Function(ImageLoadingState value)? loading,
+    TResult Function(ImageErrorState value)? error,
+    TResult Function(ImageSuccessState value)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -575,12 +574,12 @@ class _$_ImageSuccessState implements _ImageSuccessState {
   }
 }
 
-abstract class _ImageSuccessState implements ImageState {
-  const factory _ImageSuccessState({required final Wallpaper image}) =
-      _$_ImageSuccessState;
+abstract class ImageSuccessState implements ImageState {
+  factory ImageSuccessState({required final Wallpaper image}) =
+      _$ImageSuccessState;
 
   Wallpaper get image;
   @JsonKey(ignore: true)
-  _$$_ImageSuccessStateCopyWith<_$_ImageSuccessState> get copyWith =>
+  _$$ImageSuccessStateCopyWith<_$ImageSuccessState> get copyWith =>
       throw _privateConstructorUsedError;
 }

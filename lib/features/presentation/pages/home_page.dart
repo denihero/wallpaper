@@ -5,12 +5,17 @@ import 'package:wallpaper_app/features/presentation/widget/wallpaper_card.dart';
 
 import '../bloc/get_all_image/get_image_cubit.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
-    final state = context.read<GetImageCubit>().state;
+    final state = context.watch<GetImageCubit>().state;
     return Scaffold(
       backgroundColor: Colors.white70,
       appBar: AppBar(

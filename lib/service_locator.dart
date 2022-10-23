@@ -5,7 +5,7 @@ import 'package:wallpaper_app/features/presentation/bloc/get_all_image/get_image
 
 final sl = GetIt.instance;
 
-Future<void> init() async {
+init() {
   sl.registerLazySingleton(() => GetImageCubit(imageServices: sl()));
 
   sl.registerLazySingleton(() => ImageServices(client: Dio()));
