@@ -26,24 +26,19 @@ class DetailPageController {
         isDownloading.value = false;
         switch (screen) {
           case Screen.HomeScren:
-            //showSnackBar('Обои успешно установили',context,Colors.white70);
             await Wallpaper.homeScreen(
-              options: RequestSizeOptions.RESIZE_EXACT,
-              width: width,
-              height: height,
+              options: RequestSizeOptions.RESIZE_FIT,
             );
             break;
           case Screen.LockScreen:
             await Wallpaper.lockScreen(
-                options: RequestSizeOptions.RESIZE_EXACT,
-                width: width,
-                height: height);
+              options: RequestSizeOptions.RESIZE_FIT,
+            );
             break;
           case Screen.Both:
             await Wallpaper.bothScreen(
-                options: RequestSizeOptions.RESIZE_EXACT,
-                width: width,
-                height: height);
+              options: RequestSizeOptions.RESIZE_FIT,
+            );
             break;
         }
       },
@@ -104,8 +99,4 @@ class DetailPageController {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
-
-
-
-
 }

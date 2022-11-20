@@ -15,6 +15,9 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> with DetailPageController {
+
+
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
