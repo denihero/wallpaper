@@ -19,6 +19,9 @@ class WallpaperCard extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => DetailPage(
                       image: image.src!.original,
+                      author: image.photographer!,
+                      width: image.width!,
+                      height: image.height!,
                     )));
       },
       child: ClipRRect(

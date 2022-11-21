@@ -4,20 +4,22 @@ import 'package:wallpaper_app/core/models/screen.dart';
 import 'package:wallpaper_app/core/providers/apply_wallpaper.dart';
 import 'package:wallpaper_app/features/presentation/widget/internet_image.dart';
 import 'package:wallpaper_app/features/presentation/widget/wallpaper_icon.dart';
+import 'package:wallpaper_app/features/presentation/widget/wallpaper_info_card.dart';
+import 'package:wallpaper_app/uikit/image_download_widget.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({Key? key, this.image}) : super(key: key);
+  const DetailPage({Key? key, this.image, this.author, this.width, this.height,})
+      : super(key: key);
 
   final String? image;
+  final String? author;
+  final int? width, height;
 
   @override
   State<DetailPage> createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> with DetailPageController {
-
-
-
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -43,7 +45,16 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
                       Icons.info_outline,
                       color: Colors.white,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return wallpaperInfoCard(
+                                author: widget.author!,
+                                width: widget.width!,
+                                height: widget.height!);
+                          });
+                    },
                     text: 'Info',
                   ),
                   const SizedBox(
@@ -115,9 +126,11 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
             builder: (BuildContext context, bool value, __) {
               return Positioned.fill(
                   child: Align(
-                    alignment: Alignment.center,
-                    child: value ? imageDownloadDialog() : const SizedBox(),
-                  ));
+                alignment: Alignment.center,
+                child: value
+                    ? imageDownloadDialog(percentDownloading)
+                    : const SizedBox(),
+              ));
             },
           )
         ],

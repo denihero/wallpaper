@@ -11,12 +11,17 @@ class GetImageCubit extends Cubit<ImageState> {
 
   final ImageServices imageServices;
 
+  int page = 1;
+
   void getImages() async {
     emit(ImageState.loading());
     try {
-      final Wallpaper result = await imageServices.getAllImage(1);
+      print(page);
+      final Wallpaper result = await imageServices.getAllImage(page);
       emit(ImageState.success(image: result));
-    } catch (e) {
+    } catch (e,s) {
+      print(e);
+      print(s);
       emit(ImageState.error());
     }
   }
