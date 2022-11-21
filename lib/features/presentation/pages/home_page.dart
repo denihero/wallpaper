@@ -27,13 +27,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final state = context.watch<GetImageCubit>().state;
-    scrollController?.addListener(() {
-      var nextPageTrigger = 0.8 * scrollController!.position.maxScrollExtent;
-
-      if (scrollController!.position.pixels > nextPageTrigger) {
-        context.read<GetImageCubit>().page+1;
-      }
-    });
     return Scaffold(
       backgroundColor: Colors.white70,
       appBar: AppBar(
@@ -54,7 +47,11 @@ class _HomePageState extends State<HomePage> {
               error: () => const Text('Something get wrong'),
               success: (image) {
                 return GridView.builder(
-                  controller: scrollController,
+                  controller: scrollController?..addListener(() {
+                    if(scrollController!.offset == scrollController!.position.maxScrollExtent){
+                      context.read<GetImageCubit>().getImages();
+                    }
+                  }),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             childAspectRatio: 0.65,
