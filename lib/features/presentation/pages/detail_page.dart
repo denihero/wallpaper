@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wallpaper/wallpaper.dart';
 import 'package:wallpaper_app/core/models/screen.dart';
-import 'package:wallpaper_app/core/providers/apply_wallpaper.dart';
+import 'package:wallpaper_app/core/providers/detail_page_controller.dart';
 import 'package:wallpaper_app/features/presentation/widget/internet_image.dart';
 import 'package:wallpaper_app/features/presentation/widget/wallpaper_icon.dart';
 import 'package:wallpaper_app/features/presentation/widget/wallpaper_info_card.dart';
