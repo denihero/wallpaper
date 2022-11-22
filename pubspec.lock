@@ -204,6 +204,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.1"
+  fast_cached_network_image:
+    dependency: "direct main"
+    description:
+      name: fast_cached_network_image
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   ffi:
     dependency: transitive
     description:
@@ -305,6 +312,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
+  hive:
+    dependency: transitive
+    description:
+      name: hive
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.3"
   http:
     dependency: transitive
     description:
@@ -425,7 +439,7 @@ packages:
     source: hosted
     version: "1.8.2"
   path_provider:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_provider
       url: "https://pub.dartlang.org"
@@ -550,6 +564,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  shimmer:
+    dependency: "direct main"
+    description:
+      name: shimmer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   sky_engine:
     dependency: transitive
     description: flutter

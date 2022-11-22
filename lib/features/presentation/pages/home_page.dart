@@ -1,8 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallpaper_app/core/models/image.dart';
 import 'package:wallpaper_app/core/providers/home_page_controller.dart';
 import 'package:wallpaper_app/features/presentation/widget/bounce_loading.dart';
 import 'package:wallpaper_app/features/presentation/widget/wallpaper_card.dart';
@@ -47,13 +44,19 @@ class _HomePageState extends State<HomePage> with HomePageController {
               success: (image) {
                 return ValueListenableBuilder(
                   valueListenable: imagePerPage,
-                  builder: (BuildContext context, int value, _) {
+                  builder: (BuildContext context, int imagePerPageValue, _) {
                     return GridView.builder(
+                        cacheExtent: 1500,
                         controller: scrollController
                           ?..addListener(() {
                             if (scrollController!.offset ==
                                 scrollController!.position.maxScrollExtent) {
-                              imagePerPage.value += 10;
+                              // if(imagePerPage.value == 20){
+                              //   context.read<GetImageCubit>().page++;
+                              // }
+                              if (imagePerPage.value != 30) {
+                                imagePerPage.value += 5;
+                              }
                             }
                           }),
                         gridDelegate:
@@ -62,7 +65,7 @@ class _HomePageState extends State<HomePage> with HomePageController {
                                 crossAxisCount: 2,
                                 mainAxisSpacing: 5,
                                 crossAxisSpacing: 5),
-                        itemCount: value,
+                        itemCount: imagePerPageValue,
                         itemBuilder: (context, index) {
                           return WallpaperCard(
                             image: image.photos![index],

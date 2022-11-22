@@ -12,7 +12,7 @@ class GetImageCubit extends Cubit<ImageState> {
   final ImageServices imageServices;
 
   int page = 1;
-  int perPageImage = 80;
+  int perPageImage = 30;
 
   void getImages() async {
     emit(ImageState.loading());
