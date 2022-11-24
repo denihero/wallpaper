@@ -21,7 +21,7 @@ Wallpaper _$WallpaperFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Wallpaper {
   int? get page => throw _privateConstructorUsedError;
-  int? get perPage => throw _privateConstructorUsedError;
+  int? get per_page => throw _privateConstructorUsedError;
   List<Photo>? get photos => throw _privateConstructorUsedError;
   int? get totalResults => throw _privateConstructorUsedError;
   String? get nextPage => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $WallpaperCopyWith<$Res> {
   @useResult
   $Res call(
       {int? page,
-      int? perPage,
+      int? per_page,
       List<Photo>? photos,
       int? totalResults,
       String? nextPage,
@@ -61,7 +61,7 @@ class _$WallpaperCopyWithImpl<$Res, $Val extends Wallpaper>
   @override
   $Res call({
     Object? page = freezed,
-    Object? perPage = freezed,
+    Object? per_page = freezed,
     Object? photos = freezed,
     Object? totalResults = freezed,
     Object? nextPage = freezed,
@@ -72,9 +72,9 @@ class _$WallpaperCopyWithImpl<$Res, $Val extends Wallpaper>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int?,
-      perPage: freezed == perPage
-          ? _value.perPage
-          : perPage // ignore: cast_nullable_to_non_nullable
+      per_page: freezed == per_page
+          ? _value.per_page
+          : per_page // ignore: cast_nullable_to_non_nullable
               as int?,
       photos: freezed == photos
           ? _value.photos
@@ -104,7 +104,7 @@ abstract class _$$_ImageCopyWith<$Res> implements $WallpaperCopyWith<$Res> {
   @useResult
   $Res call(
       {int? page,
-      int? perPage,
+      int? per_page,
       List<Photo>? photos,
       int? totalResults,
       String? nextPage,
@@ -122,7 +122,7 @@ class __$$_ImageCopyWithImpl<$Res>
   @override
   $Res call({
     Object? page = freezed,
-    Object? perPage = freezed,
+    Object? per_page = freezed,
     Object? photos = freezed,
     Object? totalResults = freezed,
     Object? nextPage = freezed,
@@ -133,9 +133,9 @@ class __$$_ImageCopyWithImpl<$Res>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int?,
-      perPage: freezed == perPage
-          ? _value.perPage
-          : perPage // ignore: cast_nullable_to_non_nullable
+      per_page: freezed == per_page
+          ? _value.per_page
+          : per_page // ignore: cast_nullable_to_non_nullable
               as int?,
       photos: freezed == photos
           ? _value._photos
@@ -162,7 +162,7 @@ class __$$_ImageCopyWithImpl<$Res>
 class _$_Image implements _Image {
   const _$_Image(
       {this.page,
-      this.perPage,
+      this.per_page,
       final List<Photo>? photos,
       this.totalResults,
       this.nextPage,
@@ -175,7 +175,7 @@ class _$_Image implements _Image {
   @override
   final int? page;
   @override
-  final int? perPage;
+  final int? per_page;
   final List<Photo>? _photos;
   @override
   List<Photo>? get photos {
@@ -194,7 +194,7 @@ class _$_Image implements _Image {
 
   @override
   String toString() {
-    return 'Wallpaper(page: $page, perPage: $perPage, photos: $photos, totalResults: $totalResults, nextPage: $nextPage, prevPage: $prevPage)';
+    return 'Wallpaper(page: $page, per_page: $per_page, photos: $photos, totalResults: $totalResults, nextPage: $nextPage, prevPage: $prevPage)';
   }
 
   @override
@@ -203,7 +203,8 @@ class _$_Image implements _Image {
         (other.runtimeType == runtimeType &&
             other is _$_Image &&
             (identical(other.page, page) || other.page == page) &&
-            (identical(other.perPage, perPage) || other.perPage == perPage) &&
+            (identical(other.per_page, per_page) ||
+                other.per_page == per_page) &&
             const DeepCollectionEquality().equals(other._photos, _photos) &&
             (identical(other.totalResults, totalResults) ||
                 other.totalResults == totalResults) &&
@@ -218,7 +219,7 @@ class _$_Image implements _Image {
   int get hashCode => Object.hash(
       runtimeType,
       page,
-      perPage,
+      per_page,
       const DeepCollectionEquality().hash(_photos),
       totalResults,
       nextPage,
@@ -241,7 +242,7 @@ class _$_Image implements _Image {
 abstract class _Image implements Wallpaper {
   const factory _Image(
       {final int? page,
-      final int? perPage,
+      final int? per_page,
       final List<Photo>? photos,
       final int? totalResults,
       final String? nextPage,
@@ -252,7 +253,7 @@ abstract class _Image implements Wallpaper {
   @override
   int? get page;
   @override
-  int? get perPage;
+  int? get per_page;
   @override
   List<Photo>? get photos;
   @override
@@ -278,9 +279,9 @@ mixin _$Photo {
   int? get height => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
   String? get photographer => throw _privateConstructorUsedError;
-  String? get photographerUrl => throw _privateConstructorUsedError;
-  int? get photographerId => throw _privateConstructorUsedError;
-  String? get avgColor => throw _privateConstructorUsedError;
+  String? get photographer_url => throw _privateConstructorUsedError;
+  int? get photographer_id => throw _privateConstructorUsedError;
+  String? get avg_color => throw _privateConstructorUsedError;
   Src? get src => throw _privateConstructorUsedError;
   bool? get liked => throw _privateConstructorUsedError;
   String? get alt => throw _privateConstructorUsedError;
@@ -301,9 +302,9 @@ abstract class $PhotoCopyWith<$Res> {
       int? height,
       String? url,
       String? photographer,
-      String? photographerUrl,
-      int? photographerId,
-      String? avgColor,
+      String? photographer_url,
+      int? photographer_id,
+      String? avg_color,
       Src? src,
       bool? liked,
       String? alt});
@@ -329,9 +330,9 @@ class _$PhotoCopyWithImpl<$Res, $Val extends Photo>
     Object? height = freezed,
     Object? url = freezed,
     Object? photographer = freezed,
-    Object? photographerUrl = freezed,
-    Object? photographerId = freezed,
-    Object? avgColor = freezed,
+    Object? photographer_url = freezed,
+    Object? photographer_id = freezed,
+    Object? avg_color = freezed,
     Object? src = freezed,
     Object? liked = freezed,
     Object? alt = freezed,
@@ -357,17 +358,17 @@ class _$PhotoCopyWithImpl<$Res, $Val extends Photo>
           ? _value.photographer
           : photographer // ignore: cast_nullable_to_non_nullable
               as String?,
-      photographerUrl: freezed == photographerUrl
-          ? _value.photographerUrl
-          : photographerUrl // ignore: cast_nullable_to_non_nullable
+      photographer_url: freezed == photographer_url
+          ? _value.photographer_url
+          : photographer_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      photographerId: freezed == photographerId
-          ? _value.photographerId
-          : photographerId // ignore: cast_nullable_to_non_nullable
+      photographer_id: freezed == photographer_id
+          ? _value.photographer_id
+          : photographer_id // ignore: cast_nullable_to_non_nullable
               as int?,
-      avgColor: freezed == avgColor
-          ? _value.avgColor
-          : avgColor // ignore: cast_nullable_to_non_nullable
+      avg_color: freezed == avg_color
+          ? _value.avg_color
+          : avg_color // ignore: cast_nullable_to_non_nullable
               as String?,
       src: freezed == src
           ? _value.src
@@ -409,9 +410,9 @@ abstract class _$$_PhotoCopyWith<$Res> implements $PhotoCopyWith<$Res> {
       int? height,
       String? url,
       String? photographer,
-      String? photographerUrl,
-      int? photographerId,
-      String? avgColor,
+      String? photographer_url,
+      int? photographer_id,
+      String? avg_color,
       Src? src,
       bool? liked,
       String? alt});
@@ -434,9 +435,9 @@ class __$$_PhotoCopyWithImpl<$Res> extends _$PhotoCopyWithImpl<$Res, _$_Photo>
     Object? height = freezed,
     Object? url = freezed,
     Object? photographer = freezed,
-    Object? photographerUrl = freezed,
-    Object? photographerId = freezed,
-    Object? avgColor = freezed,
+    Object? photographer_url = freezed,
+    Object? photographer_id = freezed,
+    Object? avg_color = freezed,
     Object? src = freezed,
     Object? liked = freezed,
     Object? alt = freezed,
@@ -462,17 +463,17 @@ class __$$_PhotoCopyWithImpl<$Res> extends _$PhotoCopyWithImpl<$Res, _$_Photo>
           ? _value.photographer
           : photographer // ignore: cast_nullable_to_non_nullable
               as String?,
-      photographerUrl: freezed == photographerUrl
-          ? _value.photographerUrl
-          : photographerUrl // ignore: cast_nullable_to_non_nullable
+      photographer_url: freezed == photographer_url
+          ? _value.photographer_url
+          : photographer_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      photographerId: freezed == photographerId
-          ? _value.photographerId
-          : photographerId // ignore: cast_nullable_to_non_nullable
+      photographer_id: freezed == photographer_id
+          ? _value.photographer_id
+          : photographer_id // ignore: cast_nullable_to_non_nullable
               as int?,
-      avgColor: freezed == avgColor
-          ? _value.avgColor
-          : avgColor // ignore: cast_nullable_to_non_nullable
+      avg_color: freezed == avg_color
+          ? _value.avg_color
+          : avg_color // ignore: cast_nullable_to_non_nullable
               as String?,
       src: freezed == src
           ? _value.src
@@ -499,9 +500,9 @@ class _$_Photo implements _Photo {
       this.height,
       this.url,
       this.photographer,
-      this.photographerUrl,
-      this.photographerId,
-      this.avgColor,
+      this.photographer_url,
+      this.photographer_id,
+      this.avg_color,
       this.src,
       this.liked,
       this.alt});
@@ -520,11 +521,11 @@ class _$_Photo implements _Photo {
   @override
   final String? photographer;
   @override
-  final String? photographerUrl;
+  final String? photographer_url;
   @override
-  final int? photographerId;
+  final int? photographer_id;
   @override
-  final String? avgColor;
+  final String? avg_color;
   @override
   final Src? src;
   @override
@@ -534,7 +535,7 @@ class _$_Photo implements _Photo {
 
   @override
   String toString() {
-    return 'Photo(id: $id, width: $width, height: $height, url: $url, photographer: $photographer, photographerUrl: $photographerUrl, photographerId: $photographerId, avgColor: $avgColor, src: $src, liked: $liked, alt: $alt)';
+    return 'Photo(id: $id, width: $width, height: $height, url: $url, photographer: $photographer, photographer_url: $photographer_url, photographer_id: $photographer_id, avg_color: $avg_color, src: $src, liked: $liked, alt: $alt)';
   }
 
   @override
@@ -548,12 +549,12 @@ class _$_Photo implements _Photo {
             (identical(other.url, url) || other.url == url) &&
             (identical(other.photographer, photographer) ||
                 other.photographer == photographer) &&
-            (identical(other.photographerUrl, photographerUrl) ||
-                other.photographerUrl == photographerUrl) &&
-            (identical(other.photographerId, photographerId) ||
-                other.photographerId == photographerId) &&
-            (identical(other.avgColor, avgColor) ||
-                other.avgColor == avgColor) &&
+            (identical(other.photographer_url, photographer_url) ||
+                other.photographer_url == photographer_url) &&
+            (identical(other.photographer_id, photographer_id) ||
+                other.photographer_id == photographer_id) &&
+            (identical(other.avg_color, avg_color) ||
+                other.avg_color == avg_color) &&
             (identical(other.src, src) || other.src == src) &&
             (identical(other.liked, liked) || other.liked == liked) &&
             (identical(other.alt, alt) || other.alt == alt));
@@ -561,8 +562,19 @@ class _$_Photo implements _Photo {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, width, height, url,
-      photographer, photographerUrl, photographerId, avgColor, src, liked, alt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      width,
+      height,
+      url,
+      photographer,
+      photographer_url,
+      photographer_id,
+      avg_color,
+      src,
+      liked,
+      alt);
 
   @JsonKey(ignore: true)
   @override
@@ -585,9 +597,9 @@ abstract class _Photo implements Photo {
       final int? height,
       final String? url,
       final String? photographer,
-      final String? photographerUrl,
-      final int? photographerId,
-      final String? avgColor,
+      final String? photographer_url,
+      final int? photographer_id,
+      final String? avg_color,
       final Src? src,
       final bool? liked,
       final String? alt}) = _$_Photo;
@@ -605,11 +617,11 @@ abstract class _Photo implements Photo {
   @override
   String? get photographer;
   @override
-  String? get photographerUrl;
+  String? get photographer_url;
   @override
-  int? get photographerId;
+  int? get photographer_id;
   @override
-  String? get avgColor;
+  String? get avg_color;
   @override
   Src? get src;
   @override
@@ -629,7 +641,7 @@ Src _$SrcFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Src {
   String? get original => throw _privateConstructorUsedError;
-  String? get large2X => throw _privateConstructorUsedError;
+  String? get large2x => throw _privateConstructorUsedError;
   String? get large => throw _privateConstructorUsedError;
   String? get medium => throw _privateConstructorUsedError;
   String? get small => throw _privateConstructorUsedError;
@@ -649,7 +661,7 @@ abstract class $SrcCopyWith<$Res> {
   @useResult
   $Res call(
       {String? original,
-      String? large2X,
+      String? large2x,
       String? large,
       String? medium,
       String? small,
@@ -671,7 +683,7 @@ class _$SrcCopyWithImpl<$Res, $Val extends Src> implements $SrcCopyWith<$Res> {
   @override
   $Res call({
     Object? original = freezed,
-    Object? large2X = freezed,
+    Object? large2x = freezed,
     Object? large = freezed,
     Object? medium = freezed,
     Object? small = freezed,
@@ -684,9 +696,9 @@ class _$SrcCopyWithImpl<$Res, $Val extends Src> implements $SrcCopyWith<$Res> {
           ? _value.original
           : original // ignore: cast_nullable_to_non_nullable
               as String?,
-      large2X: freezed == large2X
-          ? _value.large2X
-          : large2X // ignore: cast_nullable_to_non_nullable
+      large2x: freezed == large2x
+          ? _value.large2x
+          : large2x // ignore: cast_nullable_to_non_nullable
               as String?,
       large: freezed == large
           ? _value.large
@@ -724,7 +736,7 @@ abstract class _$$_SrcCopyWith<$Res> implements $SrcCopyWith<$Res> {
   @useResult
   $Res call(
       {String? original,
-      String? large2X,
+      String? large2x,
       String? large,
       String? medium,
       String? small,
@@ -743,7 +755,7 @@ class __$$_SrcCopyWithImpl<$Res> extends _$SrcCopyWithImpl<$Res, _$_Src>
   @override
   $Res call({
     Object? original = freezed,
-    Object? large2X = freezed,
+    Object? large2x = freezed,
     Object? large = freezed,
     Object? medium = freezed,
     Object? small = freezed,
@@ -756,9 +768,9 @@ class __$$_SrcCopyWithImpl<$Res> extends _$SrcCopyWithImpl<$Res, _$_Src>
           ? _value.original
           : original // ignore: cast_nullable_to_non_nullable
               as String?,
-      large2X: freezed == large2X
-          ? _value.large2X
-          : large2X // ignore: cast_nullable_to_non_nullable
+      large2x: freezed == large2x
+          ? _value.large2x
+          : large2x // ignore: cast_nullable_to_non_nullable
               as String?,
       large: freezed == large
           ? _value.large
@@ -793,7 +805,7 @@ class __$$_SrcCopyWithImpl<$Res> extends _$SrcCopyWithImpl<$Res, _$_Src>
 class _$_Src implements _Src {
   const _$_Src(
       {this.original,
-      this.large2X,
+      this.large2x,
       this.large,
       this.medium,
       this.small,
@@ -806,7 +818,7 @@ class _$_Src implements _Src {
   @override
   final String? original;
   @override
-  final String? large2X;
+  final String? large2x;
   @override
   final String? large;
   @override
@@ -822,7 +834,7 @@ class _$_Src implements _Src {
 
   @override
   String toString() {
-    return 'Src(original: $original, large2X: $large2X, large: $large, medium: $medium, small: $small, portrait: $portrait, landscape: $landscape, tiny: $tiny)';
+    return 'Src(original: $original, large2x: $large2x, large: $large, medium: $medium, small: $small, portrait: $portrait, landscape: $landscape, tiny: $tiny)';
   }
 
   @override
@@ -832,7 +844,7 @@ class _$_Src implements _Src {
             other is _$_Src &&
             (identical(other.original, original) ||
                 other.original == original) &&
-            (identical(other.large2X, large2X) || other.large2X == large2X) &&
+            (identical(other.large2x, large2x) || other.large2x == large2x) &&
             (identical(other.large, large) || other.large == large) &&
             (identical(other.medium, medium) || other.medium == medium) &&
             (identical(other.small, small) || other.small == small) &&
@@ -845,7 +857,7 @@ class _$_Src implements _Src {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, original, large2X, large, medium,
+  int get hashCode => Object.hash(runtimeType, original, large2x, large, medium,
       small, portrait, landscape, tiny);
 
   @JsonKey(ignore: true)
@@ -865,7 +877,7 @@ class _$_Src implements _Src {
 abstract class _Src implements Src {
   const factory _Src(
       {final String? original,
-      final String? large2X,
+      final String? large2x,
       final String? large,
       final String? medium,
       final String? small,
@@ -878,7 +890,7 @@ abstract class _Src implements Src {
   @override
   String? get original;
   @override
-  String? get large2X;
+  String? get large2x;
   @override
   String? get large;
   @override

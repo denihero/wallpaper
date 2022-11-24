@@ -30,6 +30,7 @@ dependencies:
   fast_cached_network_image: ^1.0.1
   path_provider: ^2.0.11
   shimmer: ^2.0.0
+  flutter_hex_color: ^2.0.0
 
 dev_dependencies:
   flutter_test:

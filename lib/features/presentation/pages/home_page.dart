@@ -14,6 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with HomePageController {
+
   @override
   void initState() {
     super.initState();
@@ -24,9 +25,9 @@ class _HomePageState extends State<HomePage> with HomePageController {
   Widget build(BuildContext context) {
     final state = context.watch<GetImageCubit>().state;
     return Scaffold(
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0,
         title: const Text(
           'Wallpaper',
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage> with HomePageController {
               initial: () => const SizedBox(),
               loading: () => const SpinKitDoubleBounce(),
               error: () => const Text('Something get wrong'),
-              success: (image) {
+              success: (wallpaper) {
                 return ValueListenableBuilder(
                   valueListenable: imagePerPage,
                   builder: (BuildContext context, int imagePerPageValue, _) {
@@ -68,7 +69,7 @@ class _HomePageState extends State<HomePage> with HomePageController {
                         itemCount: imagePerPageValue,
                         itemBuilder: (context, index) {
                           return WallpaperCard(
-                            image: image.photos![index],
+                            image: wallpaper.photos![index],
                           );
                         });
                   },

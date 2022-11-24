@@ -2,12 +2,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'image.freezed.dart';
 part 'image.g.dart';
-
+//ignore_for_file: non_constant_identifier_names
 @freezed
 class Wallpaper with _$Wallpaper {
   const factory Wallpaper({
     int? page,
-    int? perPage,
+
+    int? per_page,
     List<Photo>? photos,
     int? totalResults,
     String? nextPage,
@@ -26,9 +27,9 @@ class Photo with _$Photo {
     int? height,
     String? url,
     String? photographer,
-    String? photographerUrl,
-    int? photographerId,
-    String? avgColor,
+    String? photographer_url,
+    int? photographer_id,
+    String? avg_color,
     Src? src,
     bool? liked,
     String? alt,
@@ -41,7 +42,7 @@ class Photo with _$Photo {
 class Src with _$Src {
   const factory Src({
     String? original,
-    String? large2X,
+    String? large2x,
     String? large,
     String? medium,
     String? small,

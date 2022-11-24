@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hex_color/flutter_hex_color.dart';
 import 'package:wallpaper_app/core/models/image.dart';
 import 'package:wallpaper_app/features/presentation/pages/detail_page.dart';
 
@@ -24,10 +25,26 @@ class WallpaperCard extends StatelessWidget {
                       height: image.height!,
                     )));
       },
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: InternetImage(
-          image: image.src!.original!,
+      child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+              image: NetworkImage(image.src!.medium!,)
+          )
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children:  [
+            Container(
+              height: 50,
+              color: HexColor(image.avg_color ?? '#938872'),
+              child: ListTile(
+                title: Text('${image.photographer}',style: TextStyle(color: Colors.white),),
+              ),
+            )
+          ]
+
         ),
       ),
     );

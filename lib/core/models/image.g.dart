@@ -8,7 +8,7 @@ part of 'image.dart';
 
 _$_Image _$$_ImageFromJson(Map<String, dynamic> json) => _$_Image(
       page: json['page'] as int?,
-      perPage: json['perPage'] as int?,
+      per_page: json['per_page'] as int?,
       photos: (json['photos'] as List<dynamic>?)
           ?.map((e) => Photo.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -19,7 +19,7 @@ _$_Image _$$_ImageFromJson(Map<String, dynamic> json) => _$_Image(
 
 Map<String, dynamic> _$$_ImageToJson(_$_Image instance) => <String, dynamic>{
       'page': instance.page,
-      'perPage': instance.perPage,
+      'per_page': instance.per_page,
       'photos': instance.photos,
       'totalResults': instance.totalResults,
       'nextPage': instance.nextPage,
@@ -32,9 +32,9 @@ _$_Photo _$$_PhotoFromJson(Map<String, dynamic> json) => _$_Photo(
       height: json['height'] as int?,
       url: json['url'] as String?,
       photographer: json['photographer'] as String?,
-      photographerUrl: json['photographerUrl'] as String?,
-      photographerId: json['photographerId'] as int?,
-      avgColor: json['avgColor'] as String?,
+      photographer_url: json['photographer_url'] as String?,
+      photographer_id: json['photographer_id'] as int?,
+      avg_color: json['avg_color'] as String?,
       src: json['src'] == null
           ? null
           : Src.fromJson(json['src'] as Map<String, dynamic>),
@@ -48,9 +48,9 @@ Map<String, dynamic> _$$_PhotoToJson(_$_Photo instance) => <String, dynamic>{
       'height': instance.height,
       'url': instance.url,
       'photographer': instance.photographer,
-      'photographerUrl': instance.photographerUrl,
-      'photographerId': instance.photographerId,
-      'avgColor': instance.avgColor,
+      'photographer_url': instance.photographer_url,
+      'photographer_id': instance.photographer_id,
+      'avg_color': instance.avg_color,
       'src': instance.src,
       'liked': instance.liked,
       'alt': instance.alt,
@@ -58,7 +58,7 @@ Map<String, dynamic> _$$_PhotoToJson(_$_Photo instance) => <String, dynamic>{
 
 _$_Src _$$_SrcFromJson(Map<String, dynamic> json) => _$_Src(
       original: json['original'] as String?,
-      large2X: json['large2X'] as String?,
+      large2x: json['large2x'] as String?,
       large: json['large'] as String?,
       medium: json['medium'] as String?,
       small: json['small'] as String?,
@@ -69,7 +69,7 @@ _$_Src _$$_SrcFromJson(Map<String, dynamic> json) => _$_Src(
 
 Map<String, dynamic> _$$_SrcToJson(_$_Src instance) => <String, dynamic>{
       'original': instance.original,
-      'large2X': instance.large2X,
+      'large2x': instance.large2x,
       'large': instance.large,
       'medium': instance.medium,
       'small': instance.small,
