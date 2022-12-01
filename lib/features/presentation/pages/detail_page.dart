@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hex_color/flutter_hex_color.dart';
 import 'package:wallpaper/wallpaper.dart';
+import 'package:wallpaper_app/core/models/image.dart';
 import 'package:wallpaper_app/core/models/screen.dart';
 import 'package:wallpaper_app/core/providers/detail_page_controller.dart';
 import 'package:wallpaper_app/features/presentation/widget/internet_image.dart';
@@ -8,12 +10,11 @@ import 'package:wallpaper_app/features/presentation/widget/wallpaper_info_card.d
 import 'package:wallpaper_app/uikit/image_download_widget.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({Key? key, this.image, this.author, this.width, this.height,})
+  const DetailPage({Key? key, this.photo, })
       : super(key: key);
 
-  final String? image;
-  final String? author;
-  final int? width, height;
+  final Photo? photo;
+
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -28,7 +29,7 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
       body: Stack(
         children: [
           InternetImage(
-            image: widget.image!,
+            image: widget.photo!.src!.original!,
             height: height,
             width: width,
           ),
@@ -50,9 +51,9 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
                           context: context,
                           builder: (context) {
                             return wallpaperInfoCard(
-                                author: widget.author!,
-                                width: widget.width!,
-                                height: widget.height!);
+                                author: widget.photo!.photographer!,
+                                width: widget.photo!.width!,
+                                height: widget.photo!.height!);
                           });
                     },
                     text: 'Info',
@@ -75,27 +76,30 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
                                 children: [
                                   ListTile(
                                     title: const Text('Home screen'),
+                                    leading: const Icon(Icons.home),
                                     onTap: () async {
                                       setState(() {});
                                       Navigator.pop(context);
                                       await applyWallpaper(context,
-                                          Screen.HomeScren, widget.image);
+                                          Screen.HomeScren, widget.photo!.src!.original!);
                                     },
                                   ),
                                   ListTile(
                                     title: const Text('Lock screen'),
+                                    leading: const Icon(Icons.lock),
                                     onTap: () async {
                                       Navigator.pop(context);
                                       await applyWallpaper(context,
-                                          Screen.LockScreen, widget.image);
+                                          Screen.LockScreen, widget.photo!.src!.original!);
                                     },
                                   ),
                                   ListTile(
                                     title: const Text('Both'),
+                                    leading: const Icon(Icons.system_security_update),
                                     onTap: () async {
                                       Navigator.pop(context);
                                       await applyWallpaper(
-                                          context, Screen.Both, widget.image);
+                                          context, Screen.Both, widget.photo!.src!.original!);
                                     },
                                   )
                                 ],

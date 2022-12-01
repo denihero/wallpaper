@@ -7,9 +7,9 @@ import 'package:wallpaper_app/features/presentation/pages/detail_page.dart';
 import 'internet_image.dart';
 
 class WallpaperCard extends StatelessWidget {
-  const WallpaperCard({Key? key, required this.image}) : super(key: key);
+  const WallpaperCard({Key? key, required this.photo}) : super(key: key);
 
-  final Photo image;
+  final Photo photo;
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +19,16 @@ class WallpaperCard extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => DetailPage(
-                      image: image.src!.original,
-                      author: image.photographer!,
-                      width: image.width!,
-                      height: image.height!,
+                      photo: photo,
                     )));
       },
       child: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-              image: NetworkImage(image.src!.medium!,)
-          )
-        ),
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                  photo.src!.medium!,
+                ))),
       ),
     );
   }

@@ -5,16 +5,16 @@ Widget wallpaperInfoCard({required String author,required int width,required int
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12)
     ),
-    title: Container(
-      height: 60,
+    content: Container(
+      height: 50,
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(12)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Author - $author'),
-          Text('Size - ${width}x$height'),
+          Text('Author: $author'),
+          Text('Size: ${width}x$height'),
         ],
       ),
     ),
