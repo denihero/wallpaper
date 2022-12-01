@@ -10,9 +10,8 @@ class ShimmerImageLoading extends StatelessWidget {
       baseColor: Colors.grey[400]!,
       highlightColor: Colors.grey[300]!,
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
         ),
       ),
     );

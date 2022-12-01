@@ -22,14 +22,9 @@ class WallpaperCard extends StatelessWidget {
                       photo: photo,
                     )));
       },
-      child: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                  photo.src!.medium!,
-                ))),
-      ),
+      child: InternetImage(image: photo.src!.medium!,
+
+      )
     );
   }
 }
