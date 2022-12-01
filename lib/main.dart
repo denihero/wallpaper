@@ -1,9 +1,5 @@
-import 'dart:io';
-
-import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:wallpaper_app/app.dart';
 import 'package:wallpaper_app/service_locator.dart' as di;
 import 'package:wallpaper_app/uikit/bloc_observer.dart';

@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wallpaper/wallpaper.dart';
 import 'package:wallpaper_app/core/models/screen.dart';
 import 'package:wallpaper_app/locale_notification.dart';
-import 'package:wallpaper_app/uikit/string_to_double.dart';
 
 class DetailPageController {
   Stream<String>? progressString;
