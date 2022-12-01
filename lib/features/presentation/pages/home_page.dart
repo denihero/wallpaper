@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> with HomePageController {
                             itemCount: imagePerPageValue,
                             itemBuilder: (context, index) {
                               return WallpaperCard(
-                                photo: wallpaper.photos![index],
+                                photo: wallpaper[index],
                               );
                             });
                       },

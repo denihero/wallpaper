@@ -21,7 +21,7 @@ mixin _$ImageState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(Wallpaper image, int imagePerCount) success,
+    required TResult Function(List<Photo> image, int imagePerCount) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$ImageState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(Wallpaper image, int imagePerCount)? success,
+    TResult? Function(List<Photo> image, int imagePerCount)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$ImageState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Wallpaper image, int imagePerCount)? success,
+    TResult Function(List<Photo> image, int imagePerCount)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,7 +127,7 @@ class _$ImageInitialState implements ImageInitialState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(Wallpaper image, int imagePerCount) success,
+    required TResult Function(List<Photo> image, int imagePerCount) success,
   }) {
     return initial();
   }
@@ -138,7 +138,7 @@ class _$ImageInitialState implements ImageInitialState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(Wallpaper image, int imagePerCount)? success,
+    TResult? Function(List<Photo> image, int imagePerCount)? success,
   }) {
     return initial?.call();
   }
@@ -149,7 +149,7 @@ class _$ImageInitialState implements ImageInitialState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Wallpaper image, int imagePerCount)? success,
+    TResult Function(List<Photo> image, int imagePerCount)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -241,7 +241,7 @@ class _$ImageLoadingState implements ImageLoadingState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(Wallpaper image, int imagePerCount) success,
+    required TResult Function(List<Photo> image, int imagePerCount) success,
   }) {
     return loading();
   }
@@ -252,7 +252,7 @@ class _$ImageLoadingState implements ImageLoadingState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(Wallpaper image, int imagePerCount)? success,
+    TResult? Function(List<Photo> image, int imagePerCount)? success,
   }) {
     return loading?.call();
   }
@@ -263,7 +263,7 @@ class _$ImageLoadingState implements ImageLoadingState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Wallpaper image, int imagePerCount)? success,
+    TResult Function(List<Photo> image, int imagePerCount)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -355,7 +355,7 @@ class _$ImageErrorState implements ImageErrorState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(Wallpaper image, int imagePerCount) success,
+    required TResult Function(List<Photo> image, int imagePerCount) success,
   }) {
     return error();
   }
@@ -366,7 +366,7 @@ class _$ImageErrorState implements ImageErrorState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(Wallpaper image, int imagePerCount)? success,
+    TResult? Function(List<Photo> image, int imagePerCount)? success,
   }) {
     return error?.call();
   }
@@ -377,7 +377,7 @@ class _$ImageErrorState implements ImageErrorState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Wallpaper image, int imagePerCount)? success,
+    TResult Function(List<Photo> image, int imagePerCount)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -434,9 +434,7 @@ abstract class _$$ImageSuccessStateCopyWith<$Res> {
           _$ImageSuccessState value, $Res Function(_$ImageSuccessState) then) =
       __$$ImageSuccessStateCopyWithImpl<$Res>;
   @useResult
-  $Res call({Wallpaper image, int imagePerCount});
-
-  $WallpaperCopyWith<$Res> get image;
+  $Res call({List<Photo> image, int imagePerCount});
 }
 
 /// @nodoc
@@ -455,32 +453,31 @@ class __$$ImageSuccessStateCopyWithImpl<$Res>
   }) {
     return _then(_$ImageSuccessState(
       image: null == image
-          ? _value.image
+          ? _value._image
           : image // ignore: cast_nullable_to_non_nullable
-              as Wallpaper,
+              as List<Photo>,
       imagePerCount: null == imagePerCount
           ? _value.imagePerCount
           : imagePerCount // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $WallpaperCopyWith<$Res> get image {
-    return $WallpaperCopyWith<$Res>(_value.image, (value) {
-      return _then(_value.copyWith(image: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class _$ImageSuccessState implements ImageSuccessState {
-  _$ImageSuccessState({required this.image, required this.imagePerCount});
+  _$ImageSuccessState(
+      {required final List<Photo> image, required this.imagePerCount})
+      : _image = image;
 
+  final List<Photo> _image;
   @override
-  final Wallpaper image;
+  List<Photo> get image {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_image);
+  }
+
   @override
   final int imagePerCount;
 
@@ -494,13 +491,14 @@ class _$ImageSuccessState implements ImageSuccessState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ImageSuccessState &&
-            (identical(other.image, image) || other.image == image) &&
+            const DeepCollectionEquality().equals(other._image, _image) &&
             (identical(other.imagePerCount, imagePerCount) ||
                 other.imagePerCount == imagePerCount));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, image, imagePerCount);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_image), imagePerCount);
 
   @JsonKey(ignore: true)
   @override
@@ -514,7 +512,7 @@ class _$ImageSuccessState implements ImageSuccessState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(Wallpaper image, int imagePerCount) success,
+    required TResult Function(List<Photo> image, int imagePerCount) success,
   }) {
     return success(image, imagePerCount);
   }
@@ -525,7 +523,7 @@ class _$ImageSuccessState implements ImageSuccessState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(Wallpaper image, int imagePerCount)? success,
+    TResult? Function(List<Photo> image, int imagePerCount)? success,
   }) {
     return success?.call(image, imagePerCount);
   }
@@ -536,7 +534,7 @@ class _$ImageSuccessState implements ImageSuccessState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Wallpaper image, int imagePerCount)? success,
+    TResult Function(List<Photo> image, int imagePerCount)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -585,10 +583,10 @@ class _$ImageSuccessState implements ImageSuccessState {
 
 abstract class ImageSuccessState implements ImageState {
   factory ImageSuccessState(
-      {required final Wallpaper image,
+      {required final List<Photo> image,
       required final int imagePerCount}) = _$ImageSuccessState;
 
-  Wallpaper get image;
+  List<Photo> get image;
   int get imagePerCount;
   @JsonKey(ignore: true)
   _$$ImageSuccessStateCopyWith<_$ImageSuccessState> get copyWith =>

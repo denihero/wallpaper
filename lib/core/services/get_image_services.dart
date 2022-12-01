@@ -7,13 +7,18 @@ class ImageServices extends BaseApi {
 
   final Dio client;
 
-  Future<Wallpaper> getAllImage(int page, {int? count = 10}) async {
+  Future<List<Photo>> getAllImage(int page, {int? count = 10}) async {
+    List<Photo> ls = [];
     var response = await getFixed(
         'https://api.pexels.com/v1/curated?page=$page&per_page=$count');
     if (response.statusCode! == 400) throw UnimplementedError();
     if (response.statusCode == 200) {
-      return Wallpaper.fromJson(response.data);
+      var data = response.data['photos'];
+      for(var item in data){
+        ls.add(Photo.fromJson(item));
+      }
+      return ls;
     }
-    return Wallpaper.fromJson(response.data);
+    return ls;
   }
 }

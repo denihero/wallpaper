@@ -17,10 +17,15 @@ class GetImageCubit extends Cubit<ImageState> {
   void getImages() async {
     emit(ImageState.loading());
     try {
-      final Wallpaper result = await imageServices.getAllImage(page,count: perPageImage);
+      //TODO:make new pagination of page here
+      final List<Photo> result = await imageServices.getAllImage(page,count: perPageImage);
+      List<Photo> newList = [];
+      newList.addAll(result);
 
-      emit(ImageState.success(image: result, imagePerCount: perPageImage,));
+      emit(ImageState.success(image: newList, imagePerCount: perPageImage,));
     } catch (e,s) {
+      print(e);
+      print(s);
       emit(ImageState.error());
     }
   }
