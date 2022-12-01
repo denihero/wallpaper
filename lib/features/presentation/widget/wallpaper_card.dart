@@ -32,20 +32,6 @@ class WallpaperCard extends StatelessWidget {
               image: NetworkImage(image.src!.medium!,)
           )
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children:  [
-            Container(
-              height: 50,
-              color: HexColor(image.avg_color ?? '#938872'),
-              child: ListTile(
-                title: Text('${image.photographer}',style: TextStyle(color: Colors.white),),
-              ),
-            )
-          ]
-
-        ),
       ),
     );
   }

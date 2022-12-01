@@ -14,7 +14,7 @@ Widget wallpaperInfoCard({required String author,required int width,required int
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text('Author - $author'),
-          Text('Size - ${height}x$width'),
+          Text('Size - ${width}x$height'),
         ],
       ),
     ),
