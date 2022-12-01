@@ -7,6 +7,7 @@ import 'package:wallpaper_app/core/providers/detail_page_controller.dart';
 import 'package:wallpaper_app/features/presentation/widget/internet_image.dart';
 import 'package:wallpaper_app/features/presentation/widget/wallpaper_icon.dart';
 import 'package:wallpaper_app/features/presentation/widget/wallpaper_info_card.dart';
+import 'package:wallpaper_app/locale_notification.dart';
 import 'package:wallpaper_app/uikit/image_download_widget.dart';
 
 class DetailPage extends StatefulWidget {

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wallpaper/wallpaper.dart';
 import 'package:wallpaper_app/core/models/screen.dart';
+import 'package:wallpaper_app/locale_notification.dart';
 import 'package:wallpaper_app/uikit/string_to_double.dart';
 
 class DetailPageController {
@@ -27,16 +28,20 @@ class DetailPageController {
             await Wallpaper.homeScreen(
               options: RequestSizeOptions.RESIZE_FIT,
             );
+            LocalNoticeService().showNotification('Обои успешно установлены!', '');
+
             break;
           case Screen.LockScreen:
             await Wallpaper.lockScreen(
               options: RequestSizeOptions.RESIZE_FIT,
             );
+            LocalNoticeService().showNotification('Обои успешно установлены!', '');
             break;
           case Screen.Both:
             await Wallpaper.bothScreen(
               options: RequestSizeOptions.RESIZE_FIT,
             );
+            LocalNoticeService().showNotification('Обои успешно установлены!', '');
             break;
         }
       },
