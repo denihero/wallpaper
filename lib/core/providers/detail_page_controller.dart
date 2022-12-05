@@ -24,7 +24,7 @@ class DetailPageController {
         switch (screen) {
           case Screen.HomeScren:
             await Wallpaper.homeScreen(
-              options: RequestSizeOptions.RESIZE_FIT,
+              options: RequestSizeOptions.RESIZE_CENTRE_CROP,
             );
             LocalNoticeService().showNotification('Обои успешно установлены!', '');
 

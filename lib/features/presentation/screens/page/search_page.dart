@@ -29,6 +29,7 @@ class _SearchPageState extends State<SearchPage> with SearchPageController{
   @override
   Widget build(BuildContext context) {
     var searchState = context.watch<SearchImageCubit>().state;
+    setupController(context, widget.query);
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4),

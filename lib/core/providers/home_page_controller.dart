@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/presentation/bloc/get_all_image/get_image_cubit.dart';
 
-class GeneralPageController {
+class HomePageController {
   ScrollController? scrollController;
   bool isTrigger = false;
 

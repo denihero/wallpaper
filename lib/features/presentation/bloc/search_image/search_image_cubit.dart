@@ -8,7 +8,8 @@ part 'search_image_state.dart';
 part 'search_image_cubit.freezed.dart';
 
 class SearchImageCubit extends Cubit<SearchImageState> {
-  SearchImageCubit({required this.imageServices}) : super(SearchImageState.initial());
+  SearchImageCubit({required this.imageServices})
+      : super(SearchImageState.initial());
 
   final ImageServices imageServices;
 
@@ -16,14 +17,17 @@ class SearchImageCubit extends Cubit<SearchImageState> {
   int perPage = 78;
   List<Photo> newList = [];
 
-  void searchAllImage(String query) async {
-    emit(SearchImageState.loading());
+  void searchAllImage(
+    String query,
+  ) async {
     try {
-      final List<Photo> result =
+      final List<Photo> resultSearch =
           await imageServices.searchImage(page, query, perPage: perPage);
+      newList.addAll(resultSearch);
       page++;
-      emit(SearchImageState.success(searchImages: result.toSet().toList()));
-    } catch (e,s) {
+
+      emit(SearchImageState.success(searchImages: newList.toSet().toList()));
+    } catch (e, s) {
       print(e);
       print(s);
       emit(SearchImageState.error());
