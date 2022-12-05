@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallpaper_app/core/providers/home_page_controller.dart';
@@ -15,6 +17,29 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with HomePageController {
+
+
+  void setupController(BuildContext context) {
+
+    scrollController?.addListener(() {
+      var nextPageTrigger = 0.8 * scrollController!.position.maxScrollExtent;
+      if (scrollController!.position.pixels > nextPageTrigger) {
+        if(isTrigger == false) {
+          context.read<GetImageCubit>().getImages();
+          setState((){
+            isTrigger = true;
+          });
+        }else{
+          return;
+        }
+      }else{
+        isTrigger = false;
+      }
+    });
+  }
+
+  bool isTrigger = false;
+
   @override
   void initState() {
     super.initState();
@@ -24,7 +49,7 @@ class _HomePageState extends State<HomePage> with HomePageController {
   @override
   Widget build(BuildContext context) {
     final state = context.watch<GetImageCubit>().state;
-
+    setupController(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -41,7 +66,9 @@ class _HomePageState extends State<HomePage> with HomePageController {
           padding: const EdgeInsets.symmetric(horizontal: 4),
           child: state.when(
             initial: () => const SizedBox(),
-            loading: () => const SpinKitDoubleBounce(),
+            loading: () {
+              return const CircularProgressIndicator();
+            },
             error: () => const Text('Something get wrong'),
             success: (wallpaper, imagePerCount) {
               return Column(
@@ -49,56 +76,37 @@ class _HomePageState extends State<HomePage> with HomePageController {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
-                    child: ValueListenableBuilder(
-                      valueListenable: imagePerPage,
-                      builder:
-                          (BuildContext context, int imagePerPageValue, _) {
-                        return GridView.builder(
-                            controller: scrollController
-                              ?..addListener(() {
-                                if (scrollController!.offset ==
-                                    scrollController!
-                                        .position.maxScrollExtent) {
-                                  if (imagePerPage.value != imagePerCount) {
-                                    imagePerPage.value += 13;
-                                  }
-                                }
-                              }),
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                    childAspectRatio: 0.45,
-                                    crossAxisCount: 3,
-                                    mainAxisSpacing: 3,
-                                    crossAxisSpacing: 3),
-                            itemCount: imagePerPageValue,
-                            itemBuilder: (context, index) {
-                              return WallpaperCard(
-                                photo: wallpaper[index],
-                              );
-                            });
+                    child: GridView.builder(
+                      controller: scrollController,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              childAspectRatio: 0.45,
+                              crossAxisCount: 3,
+                              mainAxisSpacing: 3,
+                              crossAxisSpacing: 3),
+                      itemCount: wallpaper.length,
+                      itemBuilder: (context, index) {
+                        return WallpaperCard(
+                          photo: wallpaper[index],
+                        );
                       },
                     ),
                   ),
-                  PrevNextWidget(
-                      prevButton: () {
-                        if (context.read<GetImageCubit>().page == 1) {
-                          return;
-                        } else {
-                          context.read<GetImageCubit>().page--;
-                        }
-                        context.read<GetImageCubit>().getImages();
-                      },
-                      nextButton: () {
-                        context.read<GetImageCubit>().page++;
-                        context.read<GetImageCubit>().getImages();
-                      },
-                      page: '${context.read<GetImageCubit>().page}')
                 ],
               );
             },
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        Timer.periodic(const Duration(milliseconds: 100), (timer) async {
+          if (timer.tick == 1) {
+            timer.cancel();
+          }else{
+            print('12121212');
+          }
+        });
+      }),
     );
   }
 }

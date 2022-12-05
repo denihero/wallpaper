@@ -12,7 +12,7 @@ class PrevNextWidget extends StatelessWidget {
     return Row(
       children: [
         IconButton(
-            onPressed: prevButton,
+            onPressed: page == '1' ? null : prevButton,
             icon: Icon(Icons.arrow_back_ios,color: page == '1' ? Colors.grey:Colors.black,)),
         Text(page),
         IconButton(

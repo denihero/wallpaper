@@ -17,6 +17,7 @@ class App extends StatelessWidget {
             create: (context) => sl<GetImageCubit>()..getImages()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         routes: {
           '/': (context) => const HomePage(),
           '/detail': (context) => const DetailPage()
