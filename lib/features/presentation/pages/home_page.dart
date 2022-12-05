@@ -3,8 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallpaper_app/core/providers/home_page_controller.dart';
-import 'package:wallpaper_app/features/presentation/widget/bounce_loading.dart';
-import 'package:wallpaper_app/features/presentation/widget/prev_next_widget.dart';
 import 'package:wallpaper_app/features/presentation/widget/wallpaper_card.dart';
 
 import '../bloc/get_all_image/get_image_cubit.dart';
@@ -19,26 +17,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with HomePageController {
 
 
-  void setupController(BuildContext context) {
 
-    scrollController?.addListener(() {
-      var nextPageTrigger = 0.8 * scrollController!.position.maxScrollExtent;
-      if (scrollController!.position.pixels > nextPageTrigger) {
-        if(isTrigger == false) {
-          context.read<GetImageCubit>().getImages();
-          setState((){
-            isTrigger = true;
-          });
-        }else{
-          return;
-        }
-      }else{
-        isTrigger = false;
-      }
-    });
-  }
 
-  bool isTrigger = false;
 
   @override
   void initState() {
