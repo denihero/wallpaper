@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hex_color/flutter_hex_color.dart';
 import 'package:wallpaper_app/core/models/image.dart';
-import 'package:wallpaper_app/features/presentation/pages/detail_page.dart';
 
+import '../screens/detail_screen.dart';
 import 'internet_image.dart';
 
 class WallpaperCard extends StatelessWidget {

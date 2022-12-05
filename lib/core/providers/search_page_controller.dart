@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/presentation/bloc/get_all_image/get_image_cubit.dart';
 
-class HomePageController {
+class SearchPageController {
   ScrollController? scrollController;
   bool isTrigger = false;
 
@@ -12,7 +12,7 @@ class HomePageController {
       var nextPageTrigger = 0.8 * scrollController!.position.maxScrollExtent;
       if (scrollController!.position.pixels > nextPageTrigger) {
         if (isTrigger == false) {
-          context.read<GetImageCubit>().getImages();
+          //context.read<GetImageCubit>().getImages();
 
           isTrigger = true;
         } else {
