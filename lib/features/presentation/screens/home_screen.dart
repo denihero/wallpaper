@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> with HomePageController {
                   );
 
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.search,
                   color: Colors.black,
                 ))

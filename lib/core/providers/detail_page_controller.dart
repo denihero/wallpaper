@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 import 'package:wallpaper/wallpaper.dart';
 import 'package:wallpaper_app/core/models/screen.dart';
 import 'package:wallpaper_app/locale_notification.dart';
@@ -51,5 +52,10 @@ class DetailPageController {
             });
       },
     );
+  }
+
+
+  Future<Future<bool?>> saveInternetImageToGallery(String? path) async{
+    return GallerySaver.saveImage(path!,albumName: 'Wallpaper Image');
   }
 }

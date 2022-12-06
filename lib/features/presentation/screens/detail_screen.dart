@@ -8,11 +8,12 @@ import 'package:wallpaper_app/features/presentation/widget/wallpaper_info_card.d
 import 'package:wallpaper_app/uikit/image_download_widget.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({Key? key, this.photo, })
-      : super(key: key);
+  const DetailPage({
+    Key? key,
+    this.photo,
+  }) : super(key: key);
 
   final Photo? photo;
-
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -61,6 +62,19 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
                   ),
                   WallpaperIcon(
                     icon: const Icon(
+                      Icons.download,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      saveInternetImageToGallery(widget.photo!.src!.original!);
+                    },
+                    text: 'Download',
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  WallpaperIcon(
+                    icon: const Icon(
                       Icons.format_paint,
                       color: Colors.white,
                     ),
@@ -78,8 +92,10 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
                                     onTap: () async {
                                       setState(() {});
                                       Navigator.pop(context);
-                                      await applyWallpaper(context,
-                                          Screen.HomeScren, widget.photo!.src!.original!);
+                                      await applyWallpaper(
+                                          context,
+                                          Screen.HomeScren,
+                                          widget.photo!.src!.original!);
                                     },
                                   ),
                                   ListTile(
@@ -87,17 +103,20 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
                                     leading: const Icon(Icons.lock),
                                     onTap: () async {
                                       Navigator.pop(context);
-                                      await applyWallpaper(context,
-                                          Screen.LockScreen, widget.photo!.src!.original!);
+                                      await applyWallpaper(
+                                          context,
+                                          Screen.LockScreen,
+                                          widget.photo!.src!.original!);
                                     },
                                   ),
                                   ListTile(
                                     title: const Text('Both'),
-                                    leading: const Icon(Icons.system_security_update),
+                                    leading: const Icon(
+                                        Icons.system_security_update),
                                     onTap: () async {
                                       Navigator.pop(context);
-                                      await applyWallpaper(
-                                          context, Screen.Both, widget.photo!.src!.original!);
+                                      await applyWallpaper(context, Screen.Both,
+                                          widget.photo!.src!.original!);
                                     },
                                   )
                                 ],
@@ -127,14 +146,15 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
             valueListenable: isDownloading,
             builder: (BuildContext context, bool value, __) {
               return Positioned.fill(
-                  child: Align(
-                alignment: Alignment.center,
-                child: value
-                    ? imageDownloadDialog(percentDownloading)
-                    : const SizedBox(),
-              ));
+                child: Align(
+                  alignment: Alignment.center,
+                  child: value
+                      ? imageDownloadDialog(percentDownloading)
+                      : const SizedBox(),
+                ),
+              );
             },
-          )
+          ),
         ],
       ),
     );

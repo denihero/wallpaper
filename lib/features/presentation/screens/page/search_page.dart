@@ -14,18 +14,7 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> with SearchPageController{
 
-  @override
-  void initState() {
-    scrollController = ScrollController();
-    context.read<SearchImageCubit>().searchAllImage(widget.query);
-    super.initState();
-  }
 
-  @override
-  void dispose() {
-    scrollController!.dispose();
-    super.dispose();
-  }
   @override
   Widget build(BuildContext context) {
     var searchState = context.watch<SearchImageCubit>().state;

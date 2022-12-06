@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:wallpaper_app/features/presentation/widget/shimmer_image_loading.dart';
 
 class InternetImage extends StatelessWidget {
