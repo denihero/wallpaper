@@ -10,9 +10,6 @@ class BaseApi {
   Future<Response> getFixed(String url) {
     var headers = {
       'Authorization': token,
-      'X-Ratelimit-Limit':20000,
-      'X-Ratelimit-Remaining': 19684,
-      'X-Ratelimit-Reset':1590529646 
     };
     return dio.get(url, options: Options(headers: headers));
   }

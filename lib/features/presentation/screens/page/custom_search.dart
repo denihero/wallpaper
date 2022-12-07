@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,7 +13,7 @@ class CustomSearch extends SearchDelegate {
   ScrollController scrollController = ScrollController();
   bool isTrigger = false;
 
-  void setupController(BuildContext context, String query) {
+  void setupController(BuildContext context) {
     scrollController.addListener(() {
       var nextPageTrigger = 0.8 * scrollController.position.maxScrollExtent;
       if (scrollController.position.pixels > nextPageTrigger) {
@@ -40,9 +39,13 @@ class CustomSearch extends SearchDelegate {
           icon: const Icon(Icons.clear_rounded)),
       IconButton(
         onPressed: () {
-          BlocProvider.of<SearchImageCubit>(context, listen: false).searchAllImage(query);
+          if(query.isNotEmpty){
+            BlocProvider.of<SearchImageCubit>(context, listen: false).newList.clear();
+            BlocProvider.of<SearchImageCubit>(context, listen: false).searchAllImage(query);
+          }
+
         },
-        icon: Icon(Icons.search),
+        icon: const Icon(Icons.search),
       )
     ];
   }
@@ -51,6 +54,7 @@ class CustomSearch extends SearchDelegate {
   Widget? buildLeading(BuildContext context) {
     return IconButton(
         onPressed: () {
+          BlocProvider.of<SearchImageCubit>(context, listen: false).newList.clear();
           close(context, false);
         },
         icon: const Icon(Icons.arrow_back_ios));
@@ -59,7 +63,7 @@ class CustomSearch extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     var searchState = context.watch<SearchImageCubit>().state;
-    setupController(context, query);
+    setupController(context);
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4),
@@ -102,7 +106,7 @@ class CustomSearch extends SearchDelegate {
     // Timer(Duration(milliseconds: 800), () {
     //   context.read<SearchImageCubit>().searchAllImage(query);
     // });
-    setupController(context, query);
+    setupController(context);
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4),
