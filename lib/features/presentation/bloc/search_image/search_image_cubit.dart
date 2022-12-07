@@ -15,12 +15,11 @@ class SearchImageCubit extends Cubit<SearchImageState> {
 
   int page = 1;
   int perPage = 78;
+  List<Photo> newList = [];
 
   void searchAllImage(
     String query,
   ) async {
-    List<Photo> newList = [];
-
     try {
       final List<Photo> resultSearch =
           await imageServices.searchImage(page, query, perPage: perPage);
