@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wallpaper_app/uikit/string_to_double.dart';
 
-Widget imageDownloadDialog(ValueNotifier<String> res) {
+Widget imageInstallAndDownloadDialog(ValueNotifier<String> res) {
   return Container(
       height: 120.0,
       width: 200.0,
