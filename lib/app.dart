@@ -16,9 +16,9 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider<GetImageCubit>(
             create: (context) => sl<GetImageCubit>()..getImages()),
-
         BlocProvider<SearchImageCubit>(
-            create: (context) => sl<SearchImageCubit>())
+            create: (context) => sl<SearchImageCubit>()),
+
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

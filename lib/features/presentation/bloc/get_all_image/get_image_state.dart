@@ -5,5 +5,5 @@ abstract class ImageState with _$ImageState {
   factory ImageState.initial() = ImageInitialState;
   factory ImageState.loading() = ImageLoadingState;
   factory ImageState.error() = ImageErrorState;
-  factory ImageState.success({required List<Photo> image,required int imagePerCount}) = ImageSuccessState;
+  factory ImageState.success({required List<Photo> image,required List<String> hashes}) = ImageSuccessState;
 }

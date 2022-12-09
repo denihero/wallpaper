@@ -21,7 +21,7 @@ mixin _$ImageState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(List<Photo> image, int imagePerCount) success,
+    required TResult Function(List<Photo> image, List<String> hashes) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$ImageState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(List<Photo> image, int imagePerCount)? success,
+    TResult? Function(List<Photo> image, List<String> hashes)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$ImageState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(List<Photo> image, int imagePerCount)? success,
+    TResult Function(List<Photo> image, List<String> hashes)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,7 +127,7 @@ class _$ImageInitialState implements ImageInitialState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(List<Photo> image, int imagePerCount) success,
+    required TResult Function(List<Photo> image, List<String> hashes) success,
   }) {
     return initial();
   }
@@ -138,7 +138,7 @@ class _$ImageInitialState implements ImageInitialState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(List<Photo> image, int imagePerCount)? success,
+    TResult? Function(List<Photo> image, List<String> hashes)? success,
   }) {
     return initial?.call();
   }
@@ -149,7 +149,7 @@ class _$ImageInitialState implements ImageInitialState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(List<Photo> image, int imagePerCount)? success,
+    TResult Function(List<Photo> image, List<String> hashes)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -241,7 +241,7 @@ class _$ImageLoadingState implements ImageLoadingState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(List<Photo> image, int imagePerCount) success,
+    required TResult Function(List<Photo> image, List<String> hashes) success,
   }) {
     return loading();
   }
@@ -252,7 +252,7 @@ class _$ImageLoadingState implements ImageLoadingState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(List<Photo> image, int imagePerCount)? success,
+    TResult? Function(List<Photo> image, List<String> hashes)? success,
   }) {
     return loading?.call();
   }
@@ -263,7 +263,7 @@ class _$ImageLoadingState implements ImageLoadingState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(List<Photo> image, int imagePerCount)? success,
+    TResult Function(List<Photo> image, List<String> hashes)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -355,7 +355,7 @@ class _$ImageErrorState implements ImageErrorState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(List<Photo> image, int imagePerCount) success,
+    required TResult Function(List<Photo> image, List<String> hashes) success,
   }) {
     return error();
   }
@@ -366,7 +366,7 @@ class _$ImageErrorState implements ImageErrorState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(List<Photo> image, int imagePerCount)? success,
+    TResult? Function(List<Photo> image, List<String> hashes)? success,
   }) {
     return error?.call();
   }
@@ -377,7 +377,7 @@ class _$ImageErrorState implements ImageErrorState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(List<Photo> image, int imagePerCount)? success,
+    TResult Function(List<Photo> image, List<String> hashes)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -434,7 +434,7 @@ abstract class _$$ImageSuccessStateCopyWith<$Res> {
           _$ImageSuccessState value, $Res Function(_$ImageSuccessState) then) =
       __$$ImageSuccessStateCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Photo> image, int imagePerCount});
+  $Res call({List<Photo> image, List<String> hashes});
 }
 
 /// @nodoc
@@ -449,17 +449,17 @@ class __$$ImageSuccessStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? image = null,
-    Object? imagePerCount = null,
+    Object? hashes = null,
   }) {
     return _then(_$ImageSuccessState(
       image: null == image
           ? _value._image
           : image // ignore: cast_nullable_to_non_nullable
               as List<Photo>,
-      imagePerCount: null == imagePerCount
-          ? _value.imagePerCount
-          : imagePerCount // ignore: cast_nullable_to_non_nullable
-              as int,
+      hashes: null == hashes
+          ? _value._hashes
+          : hashes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -468,8 +468,9 @@ class __$$ImageSuccessStateCopyWithImpl<$Res>
 
 class _$ImageSuccessState implements ImageSuccessState {
   _$ImageSuccessState(
-      {required final List<Photo> image, required this.imagePerCount})
-      : _image = image;
+      {required final List<Photo> image, required final List<String> hashes})
+      : _image = image,
+        _hashes = hashes;
 
   final List<Photo> _image;
   @override
@@ -478,12 +479,16 @@ class _$ImageSuccessState implements ImageSuccessState {
     return EqualUnmodifiableListView(_image);
   }
 
+  final List<String> _hashes;
   @override
-  final int imagePerCount;
+  List<String> get hashes {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_hashes);
+  }
 
   @override
   String toString() {
-    return 'ImageState.success(image: $image, imagePerCount: $imagePerCount)';
+    return 'ImageState.success(image: $image, hashes: $hashes)';
   }
 
   @override
@@ -492,13 +497,14 @@ class _$ImageSuccessState implements ImageSuccessState {
         (other.runtimeType == runtimeType &&
             other is _$ImageSuccessState &&
             const DeepCollectionEquality().equals(other._image, _image) &&
-            (identical(other.imagePerCount, imagePerCount) ||
-                other.imagePerCount == imagePerCount));
+            const DeepCollectionEquality().equals(other._hashes, _hashes));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_image), imagePerCount);
+      runtimeType,
+      const DeepCollectionEquality().hash(_image),
+      const DeepCollectionEquality().hash(_hashes));
 
   @JsonKey(ignore: true)
   @override
@@ -512,9 +518,9 @@ class _$ImageSuccessState implements ImageSuccessState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(List<Photo> image, int imagePerCount) success,
+    required TResult Function(List<Photo> image, List<String> hashes) success,
   }) {
-    return success(image, imagePerCount);
+    return success(image, hashes);
   }
 
   @override
@@ -523,9 +529,9 @@ class _$ImageSuccessState implements ImageSuccessState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(List<Photo> image, int imagePerCount)? success,
+    TResult? Function(List<Photo> image, List<String> hashes)? success,
   }) {
-    return success?.call(image, imagePerCount);
+    return success?.call(image, hashes);
   }
 
   @override
@@ -534,11 +540,11 @@ class _$ImageSuccessState implements ImageSuccessState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(List<Photo> image, int imagePerCount)? success,
+    TResult Function(List<Photo> image, List<String> hashes)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(image, imagePerCount);
+      return success(image, hashes);
     }
     return orElse();
   }
@@ -584,10 +590,10 @@ class _$ImageSuccessState implements ImageSuccessState {
 abstract class ImageSuccessState implements ImageState {
   factory ImageSuccessState(
       {required final List<Photo> image,
-      required final int imagePerCount}) = _$ImageSuccessState;
+      required final List<String> hashes}) = _$ImageSuccessState;
 
   List<Photo> get image;
-  int get imagePerCount;
+  List<String> get hashes;
   @JsonKey(ignore: true)
   _$$ImageSuccessStateCopyWith<_$ImageSuccessState> get copyWith =>
       throw _privateConstructorUsedError;

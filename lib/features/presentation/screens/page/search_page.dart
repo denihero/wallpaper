@@ -43,7 +43,7 @@ class _SearchPageState extends State<SearchPage> with SearchPageController{
                       itemCount: wallpaper.length,
                       itemBuilder: (context, index) {
                         return WallpaperCard(
-                          photo: wallpaper[index],
+                          photo: wallpaper[index], blueHash: '',
                         );
                       },
                     ),

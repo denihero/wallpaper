@@ -35,6 +35,7 @@ dependencies:
   gallery_saver: ^2.3.2
   flutter_blurhash: ^0.7.0
   loading_animation_widget: ^1.2.0+3
+  blurhash_dart: ^1.1.0
 
 dev_dependencies:
   flutter_test:

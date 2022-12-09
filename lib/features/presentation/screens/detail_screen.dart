@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:wallpaper_app/core/models/image.dart';
 import 'package:wallpaper_app/core/models/screen.dart';
 import 'package:wallpaper_app/core/providers/detail_page_controller.dart';
 import 'package:wallpaper_app/features/presentation/widget/download_widget.dart';
-import 'package:wallpaper_app/features/presentation/widget/internet_image.dart';
 import 'package:wallpaper_app/features/presentation/widget/wallpaper_icon.dart';
 import 'package:wallpaper_app/features/presentation/widget/wallpaper_info_card.dart';
 import 'package:wallpaper_app/uikit/image_download_widget.dart';
@@ -13,9 +12,11 @@ class DetailPage extends StatefulWidget {
   const DetailPage({
     Key? key,
     this.photo,
+    this.hash,
   }) : super(key: key);
 
   final Photo? photo;
+  final String? hash;
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -24,8 +25,6 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> with DetailPageController {
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: ValueListenableBuilder(
         valueListenable: isVisible,
@@ -38,10 +37,10 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
           },
           child: Stack(
             children: [
-              InternetImage(
+              BlurHash(
                 image: widget.photo!.src!.portrait!,
-                height: height,
-                width: width,
+                hash: widget.hash!,
+                imageFit: BoxFit.cover,
               ),
               Visibility(
                 visible: isVisibleValue,
@@ -112,10 +111,9 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
                                               setState(() {});
                                               Navigator.pop(context);
                                               await applyWallpaper(
-                                                  context,
-                                                  Screen.HomeScren,
-                                                  widget.photo!.src!.original!,
-
+                                                context,
+                                                Screen.HomeScren,
+                                                widget.photo!.src!.original!,
                                               );
                                             },
                                           ),
@@ -162,7 +160,7 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
                   top: 20,
                   child: IconButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.of(context).pop();
                     },
                     icon: const Icon(
                       Icons.arrow_back_ios,
@@ -185,13 +183,16 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
                 },
               ),
               AnimatedBuilder(
-                animation: Listenable.merge([isCompleteDownloading,isDownloading]),
-                builder: (BuildContext context,_) {
+                animation:
+                    Listenable.merge([isCompleteDownloading, isDownloading]),
+                builder: (BuildContext context, _) {
                   return Positioned.fill(
                     child: Align(
                       alignment: Alignment.center,
                       child: isDownloading.value
-                          ? DownloadWidget(isCompleteDownloading: isCompleteDownloading.value)
+                          ? DownloadWidget(
+                              isCompleteDownloading:
+                                  isCompleteDownloading.value)
                           : const SizedBox(),
                     ),
                   );

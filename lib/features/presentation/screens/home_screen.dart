@@ -43,10 +43,8 @@ class _HomePageState extends State<HomePage> with HomePageController {
                 onPressed: () {
                   showSearch(
                     context: context,
-                    delegate: CustomSearch(
-                    ),
+                    delegate: CustomSearch(),
                   );
-
                 },
                 icon: const Icon(
                   Icons.search,
@@ -62,7 +60,7 @@ class _HomePageState extends State<HomePage> with HomePageController {
               initial: () => const SizedBox(),
               loading: () => const CircularProgressIndicator(),
               error: () => const Text('Something get wrong'),
-              success: (wallpaper, imagePerCount) {
+              success: (wallpaper, hashes) {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -80,6 +78,7 @@ class _HomePageState extends State<HomePage> with HomePageController {
                         itemBuilder: (context, index) {
                           return WallpaperCard(
                             photo: wallpaper[index],
+                            blueHash: hashes[index],
                           );
                         },
                       ),

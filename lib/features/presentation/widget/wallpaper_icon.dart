@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class WallpaperIcon extends StatelessWidget {
@@ -24,15 +26,18 @@ class WallpaperIcon extends StatelessWidget {
             color: Colors.transparent,
             child: InkWell(
               onTap: onPressed,
-              child: Container(
-                  width: 50,
-                  height: 50,
-                  decoration: BoxDecoration(
-                      color: backgroundColor,
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(12),
-                      )),
-                  child: icon),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 6,sigmaY: 6),
+                child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                        color: backgroundColor,
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(12),
+                        )),
+                    child: icon),
+              ),
             ),
           ),
         ),
