@@ -19,7 +19,7 @@ class GetImageCubit extends Cubit<ImageState> {
   List<String> hashList = [];
 
   void getImages() async {
-    //emit(ImageState.loading());
+    page == 1 ? emit(ImageState.loading()) : null;
     try {
       final List<Photo> result =
           await imageServices.getAllImage(page, count: perPageImage);
@@ -37,8 +37,8 @@ class GetImageCubit extends Cubit<ImageState> {
         hashes: hashList,
       ));
     } catch (e, s) {
-      //print(e);
-      //print(s);
+      print(e);
+      print(s);
       emit(ImageState.error());
     }
   }

@@ -16,7 +16,6 @@ class DetailPageController {
 
   Future<void> applyWallpaper(
       BuildContext context, Screen screen, String? image) async {
-
     //Downloading image
     progressString = Wallpaper.imageDownloadProgress(image!);
 
@@ -27,27 +26,34 @@ class DetailPageController {
       },
       onDone: () async {
         //Choose with screen install
-        isDownloadingForApply.value = false;
         switch (screen) {
           case Screen.HomeScren:
             await Wallpaper.homeScreen(
               options: RequestSizeOptions.RESIZE_INSIDE,
             );
-            LocalNoticeService().showNotification('Обои успешно установлены!', '');
+            isDownloadingForApply.value = false;
+            LocalNoticeService()
+                .showNotification('Обои успешно установлены!', '');
             break;
 
           case Screen.LockScreen:
             await Wallpaper.lockScreen(
               options: RequestSizeOptions.RESIZE_FIT,
             );
-            LocalNoticeService().showNotification('Обои успешно установлены!', '');
+            isDownloadingForApply.value = false;
+
+            LocalNoticeService()
+                .showNotification('Обои успешно установлены!', '');
 
             break;
           case Screen.Both:
             await Wallpaper.bothScreen(
               options: RequestSizeOptions.RESIZE_FIT,
             );
-            LocalNoticeService().showNotification('Обои успешно установлены!', '');
+            isDownloadingForApply.value = false;
+
+            LocalNoticeService()
+                .showNotification('Обои успешно установлены!', '');
             break;
         }
       },
@@ -61,15 +67,15 @@ class DetailPageController {
     );
   }
 
-
-  Future<void> saveInternetImageToGallery(String? path) async{
+  Future<void> saveInternetImageToGallery(String? path) async {
     isDownloading.value = true;
-     GallerySaver.saveImage(path!,albumName: 'Wallpaper Image').whenComplete(() {
-       isCompleteDownloading.value = true;
-       Timer(const Duration(seconds: 2), () {
-         isDownloading.value = false;
-         isCompleteDownloading.value = false;
-       });
+    GallerySaver.saveImage(path!, albumName: 'Wallpaper Image')
+        .whenComplete(() {
+      isCompleteDownloading.value = true;
+      Timer(const Duration(seconds: 2), () {
+        isDownloading.value = false;
+        isCompleteDownloading.value = false;
+      });
     });
   }
 }
