@@ -43,11 +43,10 @@ class GetImageCubit extends Cubit<ImageState> {
     }
   }
 
-
-  Future<void> reformatImage(List<Photo> images) async{
-    for (var element in images) {
+  Future<void> reformatImage(List<Photo> images) async {
+    await Future.forEach(images, (element) async {
       String blurImage = await internetImageToBlurHash(element.src!.tiny!);
       hashList.add(blurImage);
-    }
+    });
   }
 }
