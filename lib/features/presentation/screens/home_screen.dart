@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallpaper_app/core/providers/home_page_controller.dart';
-import 'package:wallpaper_app/features/presentation/bloc/get_all_image/get_image_cubit.dart';
-import 'package:wallpaper_app/features/presentation/screens/page/custom_search.dart';
-import 'package:wallpaper_app/features/presentation/widget/wallpaper_card.dart';
+import 'package:wallpaper_app/index.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallpaper_app/core/providers/search_page_controller.dart';
-import 'package:wallpaper_app/features/presentation/bloc/search_image/search_image_cubit.dart';
-import 'package:wallpaper_app/features/presentation/widget/wallpaper_card.dart';
+import 'package:wallpaper_app/index.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key, required this.query}) : super(key: key);

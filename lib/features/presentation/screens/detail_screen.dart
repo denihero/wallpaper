@@ -1,15 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_blurhash/flutter_blurhash.dart';
-import 'package:wallpaper_app/core/models/image.dart';
-import 'package:wallpaper_app/core/models/screen.dart';
-import 'package:wallpaper_app/core/providers/detail_page_controller.dart';
-import 'package:wallpaper_app/features/presentation/widget/download_widget.dart';
-import 'package:wallpaper_app/features/presentation/widget/wallpaper_icon.dart';
-import 'package:wallpaper_app/features/presentation/widget/wallpaper_info_card.dart';
-import 'package:wallpaper_app/uikit/image_download_widget.dart';
-
-import '../widget/blur_background_widget.dart';
+import 'package:wallpaper_app/index.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({
