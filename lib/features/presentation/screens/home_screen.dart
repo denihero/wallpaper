@@ -53,39 +53,51 @@ class _HomePageState extends State<HomePage> with HomePageController {
           ],
           centerTitle: true,
         ),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: stateOfGeneralPage.when(
-              initial: () => const SizedBox(),
-              loading: () => const CircularProgressIndicator(),
-              error: () => const Text('Something get wrong'),
-              success: (wallpaper, hashes) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: GridView.builder(
-                        controller: scrollController,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                childAspectRatio: 0.45,
-                                crossAxisCount: 3,
-                                mainAxisSpacing: 3,
-                                crossAxisSpacing: 3),
-                        itemCount: wallpaper.length,
-                        itemBuilder: (context, index) {
-                          return WallpaperCard(
-                            photo: wallpaper[index],
-                            blueHash: hashes[index],
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                );
-              },
+        body: RefreshIndicator(
+          onRefresh: () async => context.read<GetImageCubit>().getImages(),
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: BlocConsumer<GetImageCubit, ImageState>(
+                listener: (context, state) {
+                  state.whenOrNull(success: (wall, hash) {
+                    isGetRequest = false;
+                  });
+                },
+                builder: (context, state) {
+                  return stateOfGeneralPage.when(
+                    initial: () => const SizedBox(),
+                    loading: () => const CircularProgressIndicator(),
+                    error: () => const Text('Something get wrong'),
+                    success: (wallpaper, hashes) {
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: GridView.builder(
+                              controller: scrollController,
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                      childAspectRatio: 0.45,
+                                      crossAxisCount: 3,
+                                      mainAxisSpacing: 3,
+                                      crossAxisSpacing: 3),
+                              itemCount: wallpaper.length,
+                              itemBuilder: (context, index) {
+                                return WallpaperCard(
+                                  photo: wallpaper[index],
+                                  blueHash: hashes[index],
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+              ),
             ),
           ),
         ));

@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
@@ -27,6 +26,8 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> with DetailPageController {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -162,7 +163,6 @@ class _DetailPageState extends State<DetailPage> with DetailPageController {
                                           ),
                                         );
                                       });
-                                  //await downloadImage(context);
                                 },
                                 backgroundColor:
                                     const Color.fromRGBO(64, 100, 245, 1),

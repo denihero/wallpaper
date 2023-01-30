@@ -32,7 +32,7 @@ class _WallpaperCardState extends State<WallpaperCard> {
         child: widget.blueHash != null
             ? BlurHash(
                 image: widget.photo.src!.medium!,
-                hash: widget.blueHash!,
+                hash: widget.blueHash ?? 'L00000fQfQfQfQfQfQfQfQfQfQfQ',
                 curve: Curves.ease,
                 imageFit: BoxFit.cover,
               )

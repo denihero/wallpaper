@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:wallpaper_app/features/presentation/widget/shimmer_image_loading.dart';
 
 class InternetImage extends StatelessWidget {
@@ -16,6 +17,9 @@ class InternetImage extends StatelessWidget {
       height: height,
       fit: BoxFit.cover,
       filterQuality: FilterQuality.high,
+      cacheKey: 'wall',
+      cacheManager:
+          CacheManager(Config('wall', stalePeriod: const Duration(days: 7))),
       placeholder: (context, url) => const ShimmerImageLoading(),
     );
   }

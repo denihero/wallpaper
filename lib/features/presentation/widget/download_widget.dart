@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class DownloadWidget extends StatelessWidget {
-  const DownloadWidget({Key? key, required this.isCompleteDownloading}) : super(key: key);
+  const DownloadWidget({Key? key, required this.isCompleteDownloading})
+      : super(key: key);
 
   final bool isCompleteDownloading;
 
@@ -17,7 +18,10 @@ class DownloadWidget extends StatelessWidget {
             ? Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  Text('Скачивание завершено',style: TextStyle(fontSize: 16),),
+                  Text(
+                    'Скачивание завершено',
+                    style: TextStyle(fontSize: 16),
+                  ),
                   Icon(
                     Icons.check,
                     color: Colors.green,
@@ -28,7 +32,7 @@ class DownloadWidget extends StatelessWidget {
             : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Скачивается',style: TextStyle(fontSize: 20)),
+                  const Text('Скачивается', style: TextStyle(fontSize: 20)),
                   const SizedBox(
                     height: 10,
                   ),

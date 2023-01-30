@@ -18,7 +18,7 @@ class GetImageCubit extends Cubit<ImageState> {
   List<Photo> newList = [];
   List<String> hashList = [];
 
-  void getImages() async {
+  Future<void> getImages() async {
     page == 1 ? emit(ImageState.loading()) : null;
     try {
       final List<Photo> result =
@@ -26,7 +26,7 @@ class GetImageCubit extends Cubit<ImageState> {
 
       newList.addAll(result);
 
-      await Future.forEach(newList, (element) async{
+      await Future.forEach(newList.toSet(), (element) async {
         hashList.add(await internetImageToBlurHash(element.src!.tiny!));
       });
 

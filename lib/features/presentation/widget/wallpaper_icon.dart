@@ -27,7 +27,7 @@ class WallpaperIcon extends StatelessWidget {
             child: InkWell(
               onTap: onPressed,
               child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 6,sigmaY: 6),
+                filter: ImageFilter.blur(sigmaX: 10,sigmaY: 10),
                 child: Container(
                     width: 50,
                     height: 50,
