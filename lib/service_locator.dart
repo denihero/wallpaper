@@ -7,6 +7,7 @@ import 'package:wallpaper_app/features/presentation/bloc/search_image/search_ima
 final sl = GetIt.instance;
 
 init() {
+
   sl.registerLazySingleton(() => GetImageCubit(imageServices: sl()));
   sl.registerLazySingleton(() => SearchImageCubit(imageServices: sl()));
 

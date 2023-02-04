@@ -21,7 +21,8 @@ mixin _$SearchImageState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(List<Photo> searchImages) success,
+    required TResult Function(List<Photo> searchImages, List<String> hashes)
+        success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +30,7 @@ mixin _$SearchImageState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(List<Photo> searchImages)? success,
+    TResult? Function(List<Photo> searchImages, List<String> hashes)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +38,7 @@ mixin _$SearchImageState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(List<Photo> searchImages)? success,
+    TResult Function(List<Photo> searchImages, List<String> hashes)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,7 +129,8 @@ class _$SearchInitialImageState implements SearchInitialImageState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(List<Photo> searchImages) success,
+    required TResult Function(List<Photo> searchImages, List<String> hashes)
+        success,
   }) {
     return initial();
   }
@@ -139,7 +141,7 @@ class _$SearchInitialImageState implements SearchInitialImageState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(List<Photo> searchImages)? success,
+    TResult? Function(List<Photo> searchImages, List<String> hashes)? success,
   }) {
     return initial?.call();
   }
@@ -150,7 +152,7 @@ class _$SearchInitialImageState implements SearchInitialImageState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(List<Photo> searchImages)? success,
+    TResult Function(List<Photo> searchImages, List<String> hashes)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -243,7 +245,8 @@ class _$SearchLoadingImageState implements SearchLoadingImageState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(List<Photo> searchImages) success,
+    required TResult Function(List<Photo> searchImages, List<String> hashes)
+        success,
   }) {
     return loading();
   }
@@ -254,7 +257,7 @@ class _$SearchLoadingImageState implements SearchLoadingImageState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(List<Photo> searchImages)? success,
+    TResult? Function(List<Photo> searchImages, List<String> hashes)? success,
   }) {
     return loading?.call();
   }
@@ -265,7 +268,7 @@ class _$SearchLoadingImageState implements SearchLoadingImageState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(List<Photo> searchImages)? success,
+    TResult Function(List<Photo> searchImages, List<String> hashes)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -357,7 +360,8 @@ class _$SearchErrorImageState implements SearchErrorImageState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(List<Photo> searchImages) success,
+    required TResult Function(List<Photo> searchImages, List<String> hashes)
+        success,
   }) {
     return error();
   }
@@ -368,7 +372,7 @@ class _$SearchErrorImageState implements SearchErrorImageState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(List<Photo> searchImages)? success,
+    TResult? Function(List<Photo> searchImages, List<String> hashes)? success,
   }) {
     return error?.call();
   }
@@ -379,7 +383,7 @@ class _$SearchErrorImageState implements SearchErrorImageState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(List<Photo> searchImages)? success,
+    TResult Function(List<Photo> searchImages, List<String> hashes)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -436,7 +440,7 @@ abstract class _$$SearchSuccessImageStateCopyWith<$Res> {
           $Res Function(_$SearchSuccessImageState) then) =
       __$$SearchSuccessImageStateCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Photo> searchImages});
+  $Res call({List<Photo> searchImages, List<String> hashes});
 }
 
 /// @nodoc
@@ -451,12 +455,17 @@ class __$$SearchSuccessImageStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? searchImages = null,
+    Object? hashes = null,
   }) {
     return _then(_$SearchSuccessImageState(
       searchImages: null == searchImages
           ? _value._searchImages
           : searchImages // ignore: cast_nullable_to_non_nullable
               as List<Photo>,
+      hashes: null == hashes
+          ? _value._hashes
+          : hashes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -464,8 +473,11 @@ class __$$SearchSuccessImageStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SearchSuccessImageState implements SearchSuccessImageState {
-  _$SearchSuccessImageState({required final List<Photo> searchImages})
-      : _searchImages = searchImages;
+  _$SearchSuccessImageState(
+      {required final List<Photo> searchImages,
+      required final List<String> hashes})
+      : _searchImages = searchImages,
+        _hashes = hashes;
 
   final List<Photo> _searchImages;
   @override
@@ -474,9 +486,16 @@ class _$SearchSuccessImageState implements SearchSuccessImageState {
     return EqualUnmodifiableListView(_searchImages);
   }
 
+  final List<String> _hashes;
+  @override
+  List<String> get hashes {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_hashes);
+  }
+
   @override
   String toString() {
-    return 'SearchImageState.success(searchImages: $searchImages)';
+    return 'SearchImageState.success(searchImages: $searchImages, hashes: $hashes)';
   }
 
   @override
@@ -485,12 +504,15 @@ class _$SearchSuccessImageState implements SearchSuccessImageState {
         (other.runtimeType == runtimeType &&
             other is _$SearchSuccessImageState &&
             const DeepCollectionEquality()
-                .equals(other._searchImages, _searchImages));
+                .equals(other._searchImages, _searchImages) &&
+            const DeepCollectionEquality().equals(other._hashes, _hashes));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_searchImages));
+      runtimeType,
+      const DeepCollectionEquality().hash(_searchImages),
+      const DeepCollectionEquality().hash(_hashes));
 
   @JsonKey(ignore: true)
   @override
@@ -505,9 +527,10 @@ class _$SearchSuccessImageState implements SearchSuccessImageState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(List<Photo> searchImages) success,
+    required TResult Function(List<Photo> searchImages, List<String> hashes)
+        success,
   }) {
-    return success(searchImages);
+    return success(searchImages, hashes);
   }
 
   @override
@@ -516,9 +539,9 @@ class _$SearchSuccessImageState implements SearchSuccessImageState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(List<Photo> searchImages)? success,
+    TResult? Function(List<Photo> searchImages, List<String> hashes)? success,
   }) {
-    return success?.call(searchImages);
+    return success?.call(searchImages, hashes);
   }
 
   @override
@@ -527,11 +550,11 @@ class _$SearchSuccessImageState implements SearchSuccessImageState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(List<Photo> searchImages)? success,
+    TResult Function(List<Photo> searchImages, List<String> hashes)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(searchImages);
+      return success(searchImages, hashes);
     }
     return orElse();
   }
@@ -575,10 +598,12 @@ class _$SearchSuccessImageState implements SearchSuccessImageState {
 }
 
 abstract class SearchSuccessImageState implements SearchImageState {
-  factory SearchSuccessImageState({required final List<Photo> searchImages}) =
-      _$SearchSuccessImageState;
+  factory SearchSuccessImageState(
+      {required final List<Photo> searchImages,
+      required final List<String> hashes}) = _$SearchSuccessImageState;
 
   List<Photo> get searchImages;
+  List<String> get hashes;
   @JsonKey(ignore: true)
   _$$SearchSuccessImageStateCopyWith<_$SearchSuccessImageState> get copyWith =>
       throw _privateConstructorUsedError;

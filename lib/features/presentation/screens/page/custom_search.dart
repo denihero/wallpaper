@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallpaper_app/features/presentation/bloc/search_image/search_image_cubit.dart';
 
 import '../../widget/wallpaper_card.dart';
 
 class CustomSearch extends SearchDelegate {
-
   @override
   TextInputAction get textInputAction => TextInputAction.done;
 
@@ -18,7 +17,9 @@ class CustomSearch extends SearchDelegate {
       var nextPageTrigger = 0.8 * scrollController.position.maxScrollExtent;
       if (scrollController.position.pixels > nextPageTrigger) {
         if (isTrigger == false) {
-          context.read<SearchImageCubit>().searchAllImage(query);
+          SchedulerBinding.instance.addPostFrameCallback((_) {
+            context.read<SearchImageCubit>().searchAllImage(query);
+          });
           isTrigger = true;
         } else {
           return;
@@ -39,11 +40,17 @@ class CustomSearch extends SearchDelegate {
           icon: const Icon(Icons.clear_rounded)),
       IconButton(
         onPressed: () {
-          if(query.isNotEmpty){
-            BlocProvider.of<SearchImageCubit>(context, listen: false).newList.clear();
-            BlocProvider.of<SearchImageCubit>(context, listen: false).searchAllImage(query);
+          if (query.isNotEmpty) {
+            BlocProvider.of<SearchImageCubit>(context, listen: false)
+                .newList
+                .clear();
+            BlocProvider.of<SearchImageCubit>(context, listen: false)
+                .hashList
+                .clear();
+            BlocProvider.of<SearchImageCubit>(context, listen: false).page = 1;
+            BlocProvider.of<SearchImageCubit>(context, listen: false)
+                .searchAllImage(query);
           }
-
         },
         icon: const Icon(Icons.search),
       )
@@ -54,7 +61,9 @@ class CustomSearch extends SearchDelegate {
   Widget? buildLeading(BuildContext context) {
     return IconButton(
         onPressed: () {
-          BlocProvider.of<SearchImageCubit>(context, listen: false).newList.clear();
+          BlocProvider.of<SearchImageCubit>(context, listen: false)
+              .newList
+              .clear();
           close(context, false);
         },
         icon: const Icon(Icons.arrow_back_ios));
@@ -71,13 +80,14 @@ class CustomSearch extends SearchDelegate {
             initial: () => const SizedBox(),
             loading: () => const CircularProgressIndicator(),
             error: () => const Center(child: Text('Search get wrong')),
-            success: (wallpaper) {
+            success: (wallpaper, hashes) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
                     child: GridView.builder(
+                      key: const PageStorageKey<String>('listvew1'),
                       controller: scrollController,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
@@ -89,6 +99,7 @@ class CustomSearch extends SearchDelegate {
                       itemBuilder: (context, index) {
                         return WallpaperCard(
                           photo: wallpaper[index],
+                          blueHash: hashes[index],
                         );
                       },
                     ),
@@ -102,44 +113,6 @@ class CustomSearch extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    var searchState = context.watch<SearchImageCubit>().state;
-    // Timer(Duration(milliseconds: 800), () {
-    //   context.read<SearchImageCubit>().searchAllImage(query);
-    // });
-    setupController(context);
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 4),
-        child: searchState.when(
-            initial: () => const SizedBox(),
-            loading: () => const CircularProgressIndicator(),
-            error: () => const Center(child: Text('Search get wrong')),
-            success: (wallpaper) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: GridView.builder(
-                      controller: scrollController,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              childAspectRatio: 0.45,
-                              crossAxisCount: 3,
-                              mainAxisSpacing: 3,
-                              crossAxisSpacing: 3),
-                      itemCount: wallpaper.length,
-                      itemBuilder: (context, index) {
-                        return WallpaperCard(
-                          photo: wallpaper[index],
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              );
-            }),
-      ),
-    );
+    return Center(child: Container());
   }
 }

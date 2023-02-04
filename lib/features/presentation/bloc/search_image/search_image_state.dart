@@ -5,6 +5,6 @@ abstract class SearchImageState with _$SearchImageState{
   factory SearchImageState.initial() = SearchInitialImageState;
   factory SearchImageState.loading() = SearchLoadingImageState;
   factory SearchImageState.error() = SearchErrorImageState;
-  factory SearchImageState.success({required List<Photo> searchImages}) = SearchSuccessImageState;
+  factory SearchImageState.success({required List<Photo> searchImages,required List<String> hashes}) = SearchSuccessImageState;
 }
 

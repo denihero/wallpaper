@@ -15,7 +15,7 @@ class GetImageCubit extends Cubit<ImageState> {
   final ImageServices imageServices;
 
   int page = 1;
-  int perPageImage = 27;
+  int perPageImage = 18;
   List<Photo> newList = [];
   List<String> hashList = [];
   late Stream<String> image;
